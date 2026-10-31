@@ -6,6 +6,13 @@ JavaScript file — no build step, no dependencies.
 
 **Live:** https://bongcoder09x.github.io/EduSphere/
 
+## Iconography and logo
+
+The crest (`assets/logo.svg`) is drawn as a vector shield with a gold monogram and
+laurel, used in the navbar, the footer and as the favicon. Icons come from the Lucide
+set and are inlined as an SVG sprite in every page, so they need no network request,
+scale cleanly and inherit the surrounding text colour.
+
 ## Design system
 
 | Token | Value | Use |
