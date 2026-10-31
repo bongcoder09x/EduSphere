@@ -1,68 +1,91 @@
-<div align="center">
-
 # EduSphere
 
-**An education platform for learners and educators — courses, lessons and progress in one place.**
+The website for **EduSphere — College of Engineering & Management**: a static,
+seven-page college site covering programmes, admissions, faculty, campus life and
+contact.
 
-![Status](https://img.shields.io/badge/status-early%20development-6366f1
-![License](https://img.shields.io/badge/license-TBD-8b949e
-![PRs](https://img.shields.io/badge/PRs-welcome-22d3ee
+Built as plain HTML, CSS and a small amount of JavaScript — no framework, no build
+step, no dependencies. Open `index.html` in a browser and it works; push it and it
+deploys.
 
-</div>
+**Live site:** https://bongcoder09x.github.io/EduSphere/
 
----
+## Pages
 
-## About
+| File | Page |
+| --- | --- |
+| `index.html` | Home — hero, stats, why-us, programmes, news |
+| `about.html` | History, teaching approach, departments, accreditation |
+| `academics.html` | Programmes, department table, academic calendar |
+| `admissions.html` | Application steps, seats by programme, fees |
+| `faculty.html` | Senior faculty and department strength |
+| `campus-life.html` | Library, hostels, sports, clubs, weekly rhythm |
+| `contact.html` | Enquiry form and admissions office details |
+| `404.html` | Not-found page |
 
-EduSphere is an education platform in early development. The aim is a single,
-uncluttered place where a learner can follow structured material from start to
-finish, see how far they have come, and where an educator can publish and manage
-that material without fighting the tool.
+## Structure
 
-This repository is at the scaffolding stage — scope, data model and stack are
-still being settled, so expect the structure to move for a while.
-
-## Planned scope
-
-- Course and lesson structure with a clear progression path
-- Learner accounts and progress tracking
-- An educator view for publishing and updating material
-- Search across courses and lessons
-
-Nothing here is built yet; this list is the working intent, not a feature list.
-
-## Intended stack
-
-Not locked in. The direction is the same one used across my other work:
-
-`React 19` · `TypeScript` · `Vite` · `Tailwind CSS` · `Supabase (Postgres + Auth)`
-
-## Getting started
-
-There is nothing to run yet. Once the app is scaffolded this section will carry
-the setup steps:
-
-```bash
-git clone https://github.com/bongcoder09x/EduSphere.git
-cd EduSphere
-npm install
-npm run dev
+```
+.
+├── index.html, about.html, …   # one file per page
+├── 404.html
+└── assets/
+    ├── style.css               # the entire design system
+    └── main.js                 # mobile menu + demo form handler
 ```
 
-## Roadmap
+Every page shares the same header and footer markup. If you change the navigation,
+change it in each page — there is deliberately no templating layer to keep the
+project readable.
 
-- [ ] Define scope, user roles and data model
-- [ ] Scaffold the app and CI
-- [ ] Authentication and profiles
-- [ ] Course and lesson views
-- [ ] Progress tracking
-- [ ] Educator publishing flow
+## Customising
 
-## Contributing
+**Colours and type** live in the `:root` block at the top of `assets/style.css`:
 
-Issues and suggestions are welcome — open one on this repository. Pull requests
-are best kept small and focused while the foundation is still moving.
+```css
+:root{
+  --ink:#0b1b33;      /* headings, header and footer background */
+  --gold:#c8963e;     /* accent */
+  --paper:#fbfbf8;    /* page background */
+  --sand:#f3efe6;     /* alternating section background */
+}
+```
 
-## License
+**Content** is plain HTML in each page file — no data files to learn. Search for the
+text you want to change and edit it in place.
 
-Not decided yet. Until a licence is added, all rights are reserved.
+**College details** (name, address, phone, email, office hours) appear in the header
+brand block, the footer, and the contact and admissions pages. Search the folder for
+`edusphere.edu.in` to find every occurrence.
+
+## What is placeholder
+
+The site is a complete front-end with demonstration content. Before it is used for a
+real institution:
+
+- Replace the college name, address, phone, email and founding year
+- Replace all figures — campus size, student and faculty counts, placement rate,
+  seat numbers — with verified numbers
+- Add real photography; the current design uses no images at all
+- Wire the enquiry form to a backend or form service (it currently shows a notice
+  instead of sending)
+- Add a privacy notice if the form collects personal data
+
+## Running locally
+
+Open `index.html` directly, or serve the folder:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then visit http://localhost:8000.
+
+## Deployment
+
+Hosted with GitHub Pages, served from the root of the `main` branch. Push to `main`
+and the site updates within a minute.
+
+## Licence
+
+No licence has been added yet — all rights reserved until one is.
