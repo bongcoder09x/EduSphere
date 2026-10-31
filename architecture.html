@@ -85,6 +85,16 @@
   </div>
 </section>
 
+<section class="band">
+  <div class="wrap">
+    <p class="eyebrow">Workers</p>
+    <h2 style="font-size:1.6rem;margin:.4rem 0 .4rem">Background jobs &mdash; separate deployment</h2>
+    <p class="muted small" style="max-width:52rem">Long-running and bursty work is kept off the request path.
+    Each worker scales on its own queue depth, so a report export never slows down an admission form.</p>
+    <div class="mod-grid" style="grid-template-columns:repeat(4,1fr)"><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy);text-align:left;padding:.85rem .9rem"><b style="display:block;font-size:.82rem">timetable-solver</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.25rem">OR-Tools &middot; Python sidecar</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy);text-align:left;padding:.85rem .9rem"><b style="display:block;font-size:.82rem">pdf-renderer</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.25rem">Playwright &mdash; ID cards, marksheets</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy);text-align:left;padding:.85rem .9rem"><b style="display:block;font-size:.82rem">notification-dispatcher</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.25rem">SMS / email / push / WhatsApp</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy);text-align:left;padding:.85rem .9rem"><b style="display:block;font-size:.82rem">bulk-import</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.25rem">CSV / XLSX &mdash; students, marks</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy);text-align:left;padding:.85rem .9rem"><b style="display:block;font-size:.82rem">fee-reminders + late-fine cron</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.25rem">Scheduled reminders and penalties</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy);text-align:left;padding:.85rem .9rem"><b style="display:block;font-size:.82rem">payment-reconciliation</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.25rem">Gateway settlements</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy);text-align:left;padding:.85rem .9rem"><b style="display:block;font-size:.82rem">report-builder</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.25rem">Heavy exports to S3</span></div></div>
+  </div>
+</section>
+
 
 <footer class="foot">
   <div class="wrap">

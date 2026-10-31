@@ -42,6 +42,11 @@ The site documents and mirrors the institute system:
   Auth/IAM, Tenancy, Admissions, Students, Faculty, Academics, Timetable,
   Attendance (QR/Geo), Exams & Results, Fees & Payments, Library, Hostel,
   Transport, LMS-lite, Comms, Reports, Files, Audit, plus GPS, Notify and BI
+- **Workers** (separate deployment) — timetable-solver (OR-Tools, Python sidecar),
+  pdf-renderer (Playwright: ID cards, marksheets), notification-dispatcher
+  (SMS/email/push/WhatsApp), bulk-import (CSV/XLSX students, marks),
+  fee-reminders + late-fine cron, payment-reconciliation (gateway settlements),
+  report-builder (heavy exports to S3)
 
 Console sidebars follow the same module names, so each screen maps to a module.
 
