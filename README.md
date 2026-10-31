@@ -50,6 +50,15 @@ The site documents and mirrors the institute system:
 
 Console sidebars follow the same module names, so each screen maps to a module.
 
+### Route map
+
+`architecture.html` lists every surface and portal with its routes and sub-features:
+
+- Public pages, admission portal, authentication, student portal
+- Student services: courses, assignments, quizzes, exams, fees, library, hostel, transport, helpdesk
+- Parent portal, faculty portal, academic coordinator, exam cell
+- Finance, library, hostel, transport, campus admin
+
 Technology choices are deliberately left out of the site copy: the structure describes
 what each surface and module does, not the stack behind it.
 
