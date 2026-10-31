@@ -83,6 +83,17 @@
       setTimeout(function () { s.remove(); }, 650);
     });
 
+    /* ---- back to top ---- */
+    var top = document.getElementById("toTop");
+    if (top) {
+      window.addEventListener("scroll", function () {
+        top.classList.toggle("show", window.scrollY > 420);
+      }, { passive: true });
+      top.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+
     /* ---- sticky nav shadow ---- */
     var nav = document.querySelector(".navbar");
     if (nav) {
