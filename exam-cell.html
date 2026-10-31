@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Examination cell | EduSphere</title>
+<meta name="description" content="Schedule, hall tickets, seating and results.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23A9002A'/%3E%3Ctext x='16' y='23' font-family='Georgia' font-size='17' fill='%23F8F2E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<div class="nav-shell">
+  <nav class="navbar">
+    <a class="brand" href="index.html">
+      <span class="crest">E</span>
+      <span><b>EduSphere</b><span>Institute of Technology</span></span>
+    </a>
+    <div class="navlinks"><a href="index.html">Home</a><div class="has-menu"><a href="academic.html">Programmes &#9662;</a><div class="menu"><a href="academic.html">All programmes</a><a href="admission.html#fees">Fee structure</a><a href="academic.html#calendar">Academic calendar</a></div></div><div class="has-menu"><a href="admission.html">Admissions &#9662;</a><div class="menu"><a href="admission.html">Apply online</a><a href="admission.html#process">Admission process</a><a href="admission.html#seats">Seats &amp; eligibility</a></div></div><a href="notices.html">Notices</a><div class="has-menu"><a href="exam.html">Results &#9662;</a><div class="menu"><a href="exam.html">Result lookup</a><a href="verify.html">Certificate verify</a></div></div><div class="has-menu"><a class="active" href="#">Portals &#9662;</a><div class="menu"><a href="student-portal.html">Student portal</a><a href="parent-portal.html">Parent portal</a><a href="faculty-console.html">Faculty portal</a><a href="admin-console.html">Admin console</a></div></div><a href="overview.html">About</a><a class="btn btn-primary btn-sm nav-cta" href="admission.html">Apply now</a></div>
+    <button class="burger" aria-label="Menu">&#9776;</button>
+  </nav>
+  <div class="mobile-nav"><a href="index.html">Home</a><a href="academic.html">Programmes</a><a href="admission.html">Admissions</a><a href="notices.html">Notices</a><a href="exam.html">Results</a><a href="#">Portals</a><a href="overview.html">About</a></div>
+</div>
+
+<div class="shell">
+  <aside class="side">
+    <div class="who">
+      <span class="avatar">EC</span>
+      <span><b>Exam cell</b><span>Exam controller</span></span>
+    </div>
+    <nav><div class="sep">Examination</div><a href="exam-cell.html" class="on">Overview</a><a href="#">Schedule</a><a href="#">Seating</a><a href="#">Results</a><a href="#">Revaluation</a></nav>
+  </aside>
+  <section class="main">
+<div class="topbar"><div><h1>Examination cell</h1><p class="small muted">Odd semester 2026&ndash;27 &middot; exams begin 23 November</p></div></div>
+<div class="kpis"><div class="kpi"><span>Exams scheduled</span><b>18</b><div class="delta">23 Nov &ndash; 6 Dec</div></div><div class="kpi"><span>Hall tickets</span><b>1,486</b><div class="delta">eligible students</div></div><div class="kpi"><span>Results published</span><b>4</b><div class="delta">of 9 programmes</div></div><div class="kpi"><span>Revaluation requests</span><b>37</b><div class="delta warn">14 open</div></div></div>
+<div class="panel">
+  <h2>Result processing</h2>
+  <p class="sub">Marks received from departments, ready for moderation</p>
+  <div class="table-shell"><table>
+    <thead><tr><th>Programme</th><th>Semester</th><th>Subjects</th><th>Marks received</th><th>Status</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td>B.Tech CSE</td><td>3</td><td>6</td><td>62 / 62</td><td><span class="badge b-ok">Ready</span></td><td><button class="btn btn-ghost btn-sm" type="button" onclick="this.textContent='Published'">Publish</button></td></tr>
+      <tr><td>B.Tech ECE</td><td>3</td><td>6</td><td>58 / 60</td><td><span class="badge b-warn">2 pending</span></td><td><button class="btn btn-ghost btn-sm" type="button">Remind</button></td></tr>
+      <tr><td>B.Tech Mechanical</td><td>5</td><td>5</td><td>44 / 44</td><td><span class="badge b-ok">Ready</span></td><td><button class="btn btn-ghost btn-sm" type="button" onclick="this.textContent='Published'">Publish</button></td></tr>
+      <tr><td>MBA</td><td>1</td><td>4</td><td>31 / 32</td><td><span class="badge b-bad">Blocked</span></td><td><button class="btn btn-ghost btn-sm" type="button">Inspect</button></td></tr>
+    </tbody></table></div>
+</div>
+<div class="panel">
+  <h2>Hall tickets and seating</h2>
+  <p class="sub">Generated per eligible student; ineligible students are excluded automatically</p>
+  <div class="grid g3">
+    <div class="card"><h3>Hall tickets</h3><p>1,486 eligible &middot; 42 short of attendance</p><button class="btn btn-primary btn-sm" style="margin-top:.7rem" type="button" onclick="this.textContent='Generated'">Generate batch</button></div>
+    <div class="card"><h3>Seating plan</h3><p>18 rooms, 1,486 seats, roll interleaving on</p><button class="btn btn-ghost btn-sm" style="margin-top:.7rem" type="button">View plan</button></div>
+    <div class="card"><h3>Invigilation</h3><p>96 duties assigned, 4 vacancies</p><button class="btn btn-ghost btn-sm" style="margin-top:.7rem" type="button">Assign</button></div>
+  </div>
+</div>
+</section>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-cols">
+      <div>
+        <div class="brand" style="margin-bottom:.8rem">
+          <span class="crest">E</span>
+          <span><b>EduSphere Institute of Technology</b><span>Est. 1998</span></span>
+        </div>
+        <p class="small muted" style="max-width:24rem">Campus Road, Salt Lake, Kolkata 700091, Kolkata, West Bengal. An autonomous institute offering
+        undergraduate and postgraduate programmes in engineering, science and management.</p>
+      </div>
+      <div>
+        <h4>Institute</h4>
+        <ul>
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="academic.html">Programmes</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="iqac.html">Quality &amp; accreditation</a></li>
+          <li><a href="architecture.html">System map</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Portals</h4>
+        <ul>
+          <li><a href="student-portal.html">Student</a></li>
+          <li><a href="parent-portal.html">Parent</a></li>
+          <li><a href="faculty-console.html">Faculty</a></li>
+          <li><a href="admin-console.html">Admin &amp; staff</a></li>
+          <li><a href="login.html">Sign in</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Campus Road, Salt Lake, Kolkata 700091</li>
+          <li><a href="tel:+913340000000">+91 33 4000 0000</a></li>
+          <li><a href="mailto:info@edusphere.edu.in">info@edusphere.edu.in</a></li>
+          <li><a href="career.html">Careers</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p>&copy; <span id="yr">2026</span> EduSphere Institute of Technology. All rights reserved.</p>
+      <p>Demonstration site &mdash; figures and records are sample data.</p>
+    </div>
+  </div>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

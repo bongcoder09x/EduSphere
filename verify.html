@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verify a certificate | EduSphere</title>
+<meta name="description" content="Verify an EduSphere certificate by code.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23A9002A'/%3E%3Ctext x='16' y='23' font-family='Georgia' font-size='17' fill='%23F8F2E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<div class="nav-shell">
+  <nav class="navbar">
+    <a class="brand" href="index.html">
+      <span class="crest">E</span>
+      <span><b>EduSphere</b><span>Institute of Technology</span></span>
+    </a>
+    <div class="navlinks"><a href="index.html">Home</a><div class="has-menu"><a href="academic.html">Programmes &#9662;</a><div class="menu"><a href="academic.html">All programmes</a><a href="admission.html#fees">Fee structure</a><a href="academic.html#calendar">Academic calendar</a></div></div><div class="has-menu"><a href="admission.html">Admissions &#9662;</a><div class="menu"><a href="admission.html">Apply online</a><a href="admission.html#process">Admission process</a><a href="admission.html#seats">Seats &amp; eligibility</a></div></div><a href="notices.html">Notices</a><div class="has-menu"><a href="exam.html">Results &#9662;</a><div class="menu"><a href="exam.html">Result lookup</a><a href="verify.html">Certificate verify</a></div></div><div class="has-menu"><a href="#">Portals &#9662;</a><div class="menu"><a href="student-portal.html">Student portal</a><a href="parent-portal.html">Parent portal</a><a href="faculty-console.html">Faculty portal</a><a href="admin-console.html">Admin console</a></div></div><a href="overview.html">About</a><a class="btn btn-primary btn-sm nav-cta" href="admission.html">Apply now</a></div>
+    <button class="burger" aria-label="Menu">&#9776;</button>
+  </nav>
+  <div class="mobile-nav"><a href="index.html">Home</a><a href="academic.html">Programmes</a><a href="admission.html">Admissions</a><a href="notices.html">Notices</a><a href="exam.html">Results</a><a href="#">Portals</a><a href="overview.html">About</a></div>
+</div>
+<main><section class="band" style="padding:34px 0 6px">
+  <div class="wrap">
+    <p class="small muted"><a href="index.html">Home</a> &nbsp;/&nbsp; Verify</p>
+    <h1 style="font-size:2.05rem;margin-top:.5rem">Certificate verification</h1>
+    <p class="muted" style="margin-top:.6rem;max-width:52rem">Every certificate issued carries a code and a QR. Enter the code to check it against the issued register. Sample: EDS-2026-0142.</p>
+  </div>
+</section>
+
+<section class="band" style="padding-top:16px">
+  <div class="wrap grid" style="grid-template-columns:.9fr 1.1fr;align-items:start">
+    <form class="glass" style="padding:22px" id="verifyForm">
+      <h2 style="font-size:1.2rem">Verify a certificate</h2>
+      <label class="field" style="margin-top:1rem"><span>Certificate code</span><input id="certInput" type="text" placeholder="EDS-2026-0142" required></label>
+      <button class="btn btn-primary btn-block" type="submit">Verify</button>
+    </form>
+    <div id="verifyOut">
+      <div class="card"><h3>What is checked</h3>
+        <p>The code is matched against the issue register: holder name, certificate type, issue date and status.
+        Tampered or reissued certificates return no match.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-cols">
+      <div>
+        <div class="brand" style="margin-bottom:.8rem">
+          <span class="crest">E</span>
+          <span><b>EduSphere Institute of Technology</b><span>Est. 1998</span></span>
+        </div>
+        <p class="small muted" style="max-width:24rem">Campus Road, Salt Lake, Kolkata 700091, Kolkata, West Bengal. An autonomous institute offering
+        undergraduate and postgraduate programmes in engineering, science and management.</p>
+      </div>
+      <div>
+        <h4>Institute</h4>
+        <ul>
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="academic.html">Programmes</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="iqac.html">Quality &amp; accreditation</a></li>
+          <li><a href="architecture.html">System map</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Portals</h4>
+        <ul>
+          <li><a href="student-portal.html">Student</a></li>
+          <li><a href="parent-portal.html">Parent</a></li>
+          <li><a href="faculty-console.html">Faculty</a></li>
+          <li><a href="admin-console.html">Admin &amp; staff</a></li>
+          <li><a href="login.html">Sign in</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Campus Road, Salt Lake, Kolkata 700091</li>
+          <li><a href="tel:+913340000000">+91 33 4000 0000</a></li>
+          <li><a href="mailto:info@edusphere.edu.in">info@edusphere.edu.in</a></li>
+          <li><a href="career.html">Careers</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p>&copy; <span id="yr">2026</span> EduSphere Institute of Technology. All rights reserved.</p>
+      <p>Demonstration site &mdash; figures and records are sample data.</p>
+    </div>
+  </div>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

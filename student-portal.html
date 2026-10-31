@@ -3,77 +3,149 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Student / Parent Portal | EduSphere</title>
-<meta name="description" content="Student and parent portal — attendance, marks, fees and notices.">
+<title>Student portal | EduSphere</title>
+<meta name="description" content="Attendance, timetable, marks, fees and notices.">
 <link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23A9002A'/%3E%3Ctext x='16' y='23' font-family='Georgia' font-size='17' fill='%23F8F2E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
 </head>
 <body>
-<div class="console">
-  <aside class="side">
-    <div class="brand">
+<div class="nav-shell">
+  <nav class="navbar">
+    <a class="brand" href="index.html">
       <span class="crest">E</span>
-      <span><b>EduSphere</b><small>R. Mitra · 22CSE0142</small></span>
+      <span><b>EduSphere</b><span>Institute of Technology</span></span>
+    </a>
+    <div class="navlinks"><a href="index.html">Home</a><div class="has-menu"><a href="academic.html">Programmes &#9662;</a><div class="menu"><a href="academic.html">All programmes</a><a href="admission.html#fees">Fee structure</a><a href="academic.html#calendar">Academic calendar</a></div></div><div class="has-menu"><a href="admission.html">Admissions &#9662;</a><div class="menu"><a href="admission.html">Apply online</a><a href="admission.html#process">Admission process</a><a href="admission.html#seats">Seats &amp; eligibility</a></div></div><a href="notices.html">Notices</a><div class="has-menu"><a href="exam.html">Results &#9662;</a><div class="menu"><a href="exam.html">Result lookup</a><a href="verify.html">Certificate verify</a></div></div><div class="has-menu"><a class="active" href="#">Portals &#9662;</a><div class="menu"><a href="student-portal.html">Student portal</a><a href="parent-portal.html">Parent portal</a><a href="faculty-console.html">Faculty portal</a><a href="admin-console.html">Admin console</a></div></div><a href="overview.html">About</a><a class="btn btn-primary btn-sm nav-cta" href="admission.html">Apply now</a></div>
+    <button class="burger" aria-label="Menu">&#9776;</button>
+  </nav>
+  <div class="mobile-nav"><a href="index.html">Home</a><a href="academic.html">Programmes</a><a href="admission.html">Admissions</a><a href="notices.html">Notices</a><a href="exam.html">Results</a><a href="#">Portals</a><a href="overview.html">About</a></div>
+</div>
+
+<div class="shell">
+  <aside class="side">
+    <div class="who">
+      <span class="avatar">RM</span>
+      <span><b>Riya Mitra</b><span>Student</span></span>
     </div>
-    <nav><a href="student-portal.html" class="on">Dashboard</a><a href="#">Attendance</a><a href="#">Exams &amp; Results</a><a href="#fees">Fees &amp; Payments</a><a href="#">Timetable</a><a href="#">Library</a><a href="#">Hostel</a><a href="#">Transport</a><a href="#">Notify</a></nav>
-    <div class="side-foot"><a href="index.html" style="color:var(--gold)">&larr; Public site</a></div>
+    <nav><div class="sep">Main</div><a href="student-portal.html" class="on">Dashboard</a><a href="#">Attendance</a><a href="exam.html">Results</a><a href="#fees">Fees</a><div class="sep">Services</div><a href="library.html">Library</a><a href="hostel.html">Hostel</a><a href="transport.html">Transport</a><a href="feedback.html">Helpdesk</a></nav>
   </aside>
-  <div class="main">
-    <div class="topbar">
-      <div style="display:flex;align-items:center;gap:.7rem">
-        <h1>Student / parent portal</h1><span class="badge-demo">Demo data</span>
+  <section class="main">
+<div class="topbar">
+  <div><h1>Good morning, Riya</h1><p class="small muted">22CSE0142 &middot; B.Tech Computer Science &middot; Semester 5 &middot; Section A</p></div>
+  <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+    <a class="btn btn-primary btn-sm" href="#fees">Pay fees</a>
+    <a class="btn btn-ghost btn-sm" href="exam.html">Hall ticket</a>
+  </div>
+</div>
+
+<div class="kpis"><div class="kpi"><span>Attendance</span><b>92%</b><div class="delta">above the 75% requirement</div></div><div class="kpi"><span>CGPA</span><b>8.6</b><div class="delta">semester 5, provisional</div></div><div class="kpi"><span>Fee due</span><b>&#8377;42,500</b><div class="delta warn">due 30 November</div></div><div class="kpi"><span>Backlogs</span><b>0</b><div class="delta">clear</div></div></div>
+
+<div class="grid" style="grid-template-columns:1.3fr .7fr;align-items:start">
+  <div>
+    <div class="panel">
+      <h2>Today&rsquo;s classes</h2>
+      <p class="sub">Friday, 31 October 2026</p>
+      <ul class="rows" id="todaySchedule"></ul>
+    </div>
+    <div class="panel">
+      <h2>Attendance by subject</h2>
+      <p class="sub">Minimum requirement is 75 per cent. Bars below the line are flagged.</p>
+      <div style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;font-size:.84rem;margin-bottom:4px"><span>CSE 301 Data Structures</span><span class="muted">92%</span></div><div class="progress"><i style="width:92%;background:linear-gradient(90deg,var(--gold),var(--burgundy))"></i></div></div><div style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;font-size:.84rem;margin-bottom:4px"><span>CSE 302 Operating Systems</span><span class="muted">88%</span></div><div class="progress"><i style="width:88%;background:linear-gradient(90deg,var(--gold),var(--burgundy))"></i></div></div><div style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;font-size:.84rem;margin-bottom:4px"><span>CSE 303 DBMS</span><span class="muted">90%</span></div><div class="progress"><i style="width:90%;background:linear-gradient(90deg,var(--gold),var(--burgundy))"></i></div></div><div style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;font-size:.84rem;margin-bottom:4px"><span>CSE 305 Lab</span><span class="muted">96%</span></div><div class="progress"><i style="width:96%;background:linear-gradient(90deg,var(--gold),var(--burgundy))"></i></div></div><div style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;font-size:.84rem;margin-bottom:4px"><span>MGT 210 Economics</span><span class="muted">76%</span></div><div class="progress"><i style="width:76%;background:linear-gradient(90deg,var(--gold),var(--burgundy))"></i></div></div>
+    </div>
+    <div class="panel" id="fees">
+      <h2>Fee payment</h2>
+      <p class="sub">Select the instalments you want to pay now.</p>
+      <div id="feeBox">
+        <label class="check" style="padding:.55rem 0;border-bottom:1px solid rgba(234,217,195,.7);display:flex;justify-content:space-between;width:100%"><span style="display:flex;gap:.6rem;align-items:center"><input type="checkbox" data-amount="42500">Tuition fee, semester 5<div class="small muted">due 30 Nov 2026</div></span><b>&#8377;42,500</b></label><label class="check" style="padding:.55rem 0;border-bottom:1px solid rgba(234,217,195,.7);display:flex;justify-content:space-between;width:100%"><span style="display:flex;gap:.6rem;align-items:center"><input type="checkbox" data-amount="1800">Examination fee<div class="small muted">due 30 Nov 2026</div></span><b>&#8377;1,800</b></label><label class="check" style="padding:.55rem 0;border-bottom:1px solid rgba(234,217,195,.7);display:flex;justify-content:space-between;width:100%"><span style="display:flex;gap:.6rem;align-items:center"><input type="checkbox" data-amount="3200">Library and laboratory fee<div class="small muted">due 30 Nov 2026</div></span><b>&#8377;3,200</b></label><label class="check" style="padding:.55rem 0;border-bottom:1px solid rgba(234,217,195,.7);display:flex;justify-content:space-between;width:100%"><span style="display:flex;gap:.6rem;align-items:center"><input type="checkbox" data-amount="9500">Hostel seat rent<div class="small muted">due 05 Dec 2026</div></span><b>&#8377;9,500</b></label>
       </div>
-      <div class="who"><span class="av">RM</span><span>R. Mitra · 22CSE0142</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;flex-wrap:wrap;gap:10px">
+        <div><span class="small muted">Total selected</span><div style="font-family:var(--serif);font-size:1.4rem" id="feeTotal">&#8377;0</div></div>
+        <button class="btn btn-primary" id="payNow" type="button">Pay now</button>
+      </div>
+      <p class="small muted" style="margin-top:.6rem">Paid online or at the accounts counter. Receipts are stored in your ledger.</p>
     </div>
-    <div class="body">
-<div class="kpis">
-  <div class="kpi"><span>Attendance</span><b>92%</b><div class="delta">Above the 75% requirement</div></div>
-  <div class="kpi"><span>CGPA</span><b>8.6</b><div class="delta">Semester 5, latest</div></div>
-  <div class="kpi"><span>Fee due</span><b>&#8377;42,500</b><div class="delta" style="color:#8a6100">Due 30 Nov 2026</div></div>
-  <div class="kpi"><span>Backlogs</span><b>0</b><div class="delta">Clear</div></div>
-</div>
-
-<div class="panel">
-  <h2>This semester</h2>
-  <p class="sub">Semester 5 &middot; B.Tech Computer Science &middot; Section A</p>
-  <div class="table-shell">
-    <table>
-      <thead><tr><th>Course</th><th>Faculty</th><th>Attendance</th><th>Internal /70</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td>CSE 301 &mdash; Data Structures</td><td>Dr. A. Banerjee</td><td>92%</td><td>63</td><td><span class="pillstat ok">On track</span></td></tr>
-        <tr><td>CSE 402 &mdash; Operating Systems</td><td>Dr. S. Nair</td><td>88%</td><td>55</td><td><span class="pillstat ok">On track</span></td></tr>
-        <tr><td>CSE 505 &mdash; Distributed Systems</td><td>Dr. A. Banerjee</td><td>90%</td><td>58</td><td><span class="pillstat ok">On track</span></td></tr>
-        <tr><td>MGT 210 &mdash; Engineering Economics</td><td>Dr. M. Iyer</td><td>76%</td><td>41</td><td><span class="pillstat warn">Watch</span></td></tr>
-      </tbody>
-    </table>
+  </div>
+  <div>
+    <div class="panel center">
+      <h2 style="text-align:left">Attendance</h2>
+      <p class="sub" style="text-align:left">This semester</p>
+      <div class="ring" id="attRing" style="margin:0 auto"><b>92%</b></div>
+      <p class="small muted" style="margin-top:.7rem">4 classes needed to stay above 75% in MGT 210.</p>
+    </div>
+    <div class="panel">
+      <h2>Notices</h2>
+      <p class="sub">Acknowledged items are hidden</p>
+      <ul class="rows" style="background:transparent;border:0">
+        <li style="border:0;padding:.45rem 0"><span>Odd semester time table published</span><span class="badge b-ok">New</span></li>
+        <li style="border:0;padding:.45rem 0"><span>MGT 210 attendance below 80%</span><span class="badge b-warn">Action</span></li>
+        <li style="border:0;padding:.45rem 0"><span>Scholarship window open</span><span class="date">02 Oct</span></li>
+      </ul>
+    </div>
   </div>
 </div>
 
-<div class="grid g2">
-  <div class="panel" id="fees">
-    <h2>Fee payment</h2>
-    <p class="sub">Semester 5 tuition &mdash; &#8377;42,500 due 30 November 2026</p>
-    <div style="display:flex;gap:.6rem;flex-wrap:wrap">
-      <a class="btn btn-maroon" href="#fees">Pay now</a>
-      <a class="btn btn-gold" href="#fees">Download receipt</a>
-    </div>
+<div class="modal" id="receiptModal">
+  <div class="modal-card">
+    <h2 style="font-size:1.25rem">Payment successful</h2>
+    <p class="small muted" style="margin-top:.3rem">A receipt has been added to your ledger.</p>
     <ul class="rows" style="margin-top:1rem">
-      <li><span>Semester 4 &mdash; paid</span><span class="date">12 Jul 2026</span></li>
-      <li><span>Semester 3 &mdash; paid</span><span class="date">08 Jan 2026</span></li>
+      <li><span>Receipt number</span><b id="receiptNo">RCPT-2026-000000</b></li>
+      <li><span>Amount paid</span><b id="receiptAmount">&#8377;0</b></li>
+      <li><span>Mode</span><b>UPI</b></li>
     </ul>
-  </div>
-  <div class="panel">
-    <h2>Notices for you</h2>
-    <p class="sub">From the examination cell and your department</p>
-    <ul class="rows" style="border:0">
-      <li><span>Odd semester time table published<span class="new">NEW</span></span><span class="date">14 Oct</span></li>
-      <li><span>MGT 210 attendance below 80%</span><span class="date">09 Oct</span></li>
-      <li><span>Scholarship application window open</span><span class="date">02 Oct</span></li>
-    </ul>
+    <button class="btn btn-primary btn-block" style="margin-top:1rem" data-close-modal type="button">Done</button>
   </div>
 </div>
+</section>
 </div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-cols">
+      <div>
+        <div class="brand" style="margin-bottom:.8rem">
+          <span class="crest">E</span>
+          <span><b>EduSphere Institute of Technology</b><span>Est. 1998</span></span>
+        </div>
+        <p class="small muted" style="max-width:24rem">Campus Road, Salt Lake, Kolkata 700091, Kolkata, West Bengal. An autonomous institute offering
+        undergraduate and postgraduate programmes in engineering, science and management.</p>
+      </div>
+      <div>
+        <h4>Institute</h4>
+        <ul>
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="academic.html">Programmes</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="iqac.html">Quality &amp; accreditation</a></li>
+          <li><a href="architecture.html">System map</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Portals</h4>
+        <ul>
+          <li><a href="student-portal.html">Student</a></li>
+          <li><a href="parent-portal.html">Parent</a></li>
+          <li><a href="faculty-console.html">Faculty</a></li>
+          <li><a href="admin-console.html">Admin &amp; staff</a></li>
+          <li><a href="login.html">Sign in</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Campus Road, Salt Lake, Kolkata 700091</li>
+          <li><a href="tel:+913340000000">+91 33 4000 0000</a></li>
+          <li><a href="mailto:info@edusphere.edu.in">info@edusphere.edu.in</a></li>
+          <li><a href="career.html">Careers</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p>&copy; <span id="yr">2026</span> EduSphere Institute of Technology. All rights reserved.</p>
+      <p>Demonstration site &mdash; figures and records are sample data.</p>
+    </div>
   </div>
-</div>
-<script src="assets/main.js"></script>
+</footer>
+<script src="assets/app.js"></script>
 </body>
 </html>

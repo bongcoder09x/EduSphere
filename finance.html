@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finance | EduSphere</title>
+<meta name="description" content="Fee collection, ledgers and reconciliation.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23A9002A'/%3E%3Ctext x='16' y='23' font-family='Georgia' font-size='17' fill='%23F8F2E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<div class="nav-shell">
+  <nav class="navbar">
+    <a class="brand" href="index.html">
+      <span class="crest">E</span>
+      <span><b>EduSphere</b><span>Institute of Technology</span></span>
+    </a>
+    <div class="navlinks"><a href="index.html">Home</a><div class="has-menu"><a href="academic.html">Programmes &#9662;</a><div class="menu"><a href="academic.html">All programmes</a><a href="admission.html#fees">Fee structure</a><a href="academic.html#calendar">Academic calendar</a></div></div><div class="has-menu"><a href="admission.html">Admissions &#9662;</a><div class="menu"><a href="admission.html">Apply online</a><a href="admission.html#process">Admission process</a><a href="admission.html#seats">Seats &amp; eligibility</a></div></div><a href="notices.html">Notices</a><div class="has-menu"><a href="exam.html">Results &#9662;</a><div class="menu"><a href="exam.html">Result lookup</a><a href="verify.html">Certificate verify</a></div></div><div class="has-menu"><a class="active" href="#">Portals &#9662;</a><div class="menu"><a href="student-portal.html">Student portal</a><a href="parent-portal.html">Parent portal</a><a href="faculty-console.html">Faculty portal</a><a href="admin-console.html">Admin console</a></div></div><a href="overview.html">About</a><a class="btn btn-primary btn-sm nav-cta" href="admission.html">Apply now</a></div>
+    <button class="burger" aria-label="Menu">&#9776;</button>
+  </nav>
+  <div class="mobile-nav"><a href="index.html">Home</a><a href="academic.html">Programmes</a><a href="admission.html">Admissions</a><a href="notices.html">Notices</a><a href="exam.html">Results</a><a href="#">Portals</a><a href="overview.html">About</a></div>
+</div>
+
+<div class="shell">
+  <aside class="side">
+    <div class="who">
+      <span class="avatar">AC</span>
+      <span><b>Accounts</b><span>Accountant</span></span>
+    </div>
+    <nav><div class="sep">Finance</div><a href="finance.html" class="on">Collection desk</a><a href="#">Ledger</a><a href="#">Defaulters</a><a href="#">Reconciliation</a><a href="#">Reports</a></nav>
+  </aside>
+  <section class="main">
+<div class="topbar"><div><h1>Finance</h1><p class="small muted">Collection desk and ledger reconciliation</p></div>
+<button class="btn btn-primary btn-sm" type="button" onclick="this.textContent='Day closed'">Close day</button></div>
+<div class="kpis"><div class="kpi"><span>Collected today</span><b>&#8377;1.24L</b><div class="delta">48 receipts</div></div><div class="kpi"><span>This month</span><b>&#8377;18.4L</b><div class="delta">72% of target</div></div><div class="kpi"><span>Outstanding</span><b>&#8377;42.6L</b><div class="delta warn">96 students overdue</div></div><div class="kpi"><span>Refunds</span><b>3</b><div class="delta">awaiting approval</div></div></div>
+<div class="panel">
+  <h2>Collection desk</h2>
+  <p class="sub">Search a student by roll number, then collect against open dues</p>
+  <div class="toolbar">
+    <div class="search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    <input type="search" placeholder="Roll number or name" value="22CSE0142"></div>
+    <button class="btn btn-ghost btn-sm" type="button">Find student</button>
+  </div>
+  <div class="grid g2" style="align-items:start">
+    <div class="table-shell"><table>
+      <thead><tr><th>Head</th><th>Due date</th><th>Amount</th></tr></thead>
+      <tbody>
+        <tr><td>Tuition, semester 5</td><td>30 Nov 2026</td><td>&#8377;42,500</td></tr>
+        <tr><td>Examination fee</td><td>30 Nov 2026</td><td>&#8377;1,800</td></tr>
+        <tr><td>Library and lab fee</td><td>30 Nov 2026</td><td>&#8377;3,200</td></tr>
+        <tr><td>Hostel seat rent</td><td>05 Dec 2026</td><td>&#8377;9,500</td></tr>
+      </tbody></table></div>
+    <div class="card">
+      <h3>Payment</h3>
+      <label class="field" style="margin-top:.6rem"><span>Mode</span><select><option>Cash</option><option>Cheque</option><option>Demand draft</option><option>UPI reference</option></select></label>
+      <label class="field"><span>Amount</span><input type="text" value="57,000"></label>
+      <button class="btn btn-primary btn-block" type="button" onclick="this.textContent='Receipt printed'">Collect and print receipt</button>
+      <p class="small muted" style="margin-top:.6rem">Receipt numbers are sequential and cannot be skipped.</p>
+    </div>
+  </div>
+</div>
+<div class="panel">
+  <h2>Reconciliation</h2>
+  <p class="sub">Online settlements against the ledger, last 7 days</p>
+  <div class="table-shell"><table>
+    <thead><tr><th>Date</th><th>Gateway</th><th>Collected</th><th>Allocated</th><th>Difference</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>30 Oct</td><td>Online</td><td>&#8377;4,82,000</td><td>&#8377;4,82,000</td><td>&#8377;0</td><td><span class="badge b-ok">Matched</span></td></tr>
+      <tr><td>29 Oct</td><td>Online</td><td>&#8377;3,15,500</td><td>&#8377;3,12,500</td><td>&#8377;3,000</td><td><span class="badge b-warn">3 mismatches</span></td></tr>
+      <tr><td>28 Oct</td><td>Online</td><td>&#8377;6,04,200</td><td>&#8377;6,04,200</td><td>&#8377;0</td><td><span class="badge b-ok">Matched</span></td></tr>
+    </tbody></table></div>
+</div>
+</section>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-cols">
+      <div>
+        <div class="brand" style="margin-bottom:.8rem">
+          <span class="crest">E</span>
+          <span><b>EduSphere Institute of Technology</b><span>Est. 1998</span></span>
+        </div>
+        <p class="small muted" style="max-width:24rem">Campus Road, Salt Lake, Kolkata 700091, Kolkata, West Bengal. An autonomous institute offering
+        undergraduate and postgraduate programmes in engineering, science and management.</p>
+      </div>
+      <div>
+        <h4>Institute</h4>
+        <ul>
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="academic.html">Programmes</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="iqac.html">Quality &amp; accreditation</a></li>
+          <li><a href="architecture.html">System map</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Portals</h4>
+        <ul>
+          <li><a href="student-portal.html">Student</a></li>
+          <li><a href="parent-portal.html">Parent</a></li>
+          <li><a href="faculty-console.html">Faculty</a></li>
+          <li><a href="admin-console.html">Admin &amp; staff</a></li>
+          <li><a href="login.html">Sign in</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Campus Road, Salt Lake, Kolkata 700091</li>
+          <li><a href="tel:+913340000000">+91 33 4000 0000</a></li>
+          <li><a href="mailto:info@edusphere.edu.in">info@edusphere.edu.in</a></li>
+          <li><a href="career.html">Careers</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p>&copy; <span id="yr">2026</span> EduSphere Institute of Technology. All rights reserved.</p>
+      <p>Demonstration site &mdash; figures and records are sample data.</p>
+    </div>
+  </div>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

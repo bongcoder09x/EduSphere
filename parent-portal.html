@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parent portal | EduSphere</title>
+<meta name="description" content="Attendance, results, fees and approvals for your ward.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23A9002A'/%3E%3Ctext x='16' y='23' font-family='Georgia' font-size='17' fill='%23F8F2E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<div class="nav-shell">
+  <nav class="navbar">
+    <a class="brand" href="index.html">
+      <span class="crest">E</span>
+      <span><b>EduSphere</b><span>Institute of Technology</span></span>
+    </a>
+    <div class="navlinks"><a href="index.html">Home</a><div class="has-menu"><a href="academic.html">Programmes &#9662;</a><div class="menu"><a href="academic.html">All programmes</a><a href="admission.html#fees">Fee structure</a><a href="academic.html#calendar">Academic calendar</a></div></div><div class="has-menu"><a href="admission.html">Admissions &#9662;</a><div class="menu"><a href="admission.html">Apply online</a><a href="admission.html#process">Admission process</a><a href="admission.html#seats">Seats &amp; eligibility</a></div></div><a href="notices.html">Notices</a><div class="has-menu"><a href="exam.html">Results &#9662;</a><div class="menu"><a href="exam.html">Result lookup</a><a href="verify.html">Certificate verify</a></div></div><div class="has-menu"><a class="active" href="#">Portals &#9662;</a><div class="menu"><a href="student-portal.html">Student portal</a><a href="parent-portal.html">Parent portal</a><a href="faculty-console.html">Faculty portal</a><a href="admin-console.html">Admin console</a></div></div><a href="overview.html">About</a><a class="btn btn-primary btn-sm nav-cta" href="admission.html">Apply now</a></div>
+    <button class="burger" aria-label="Menu">&#9776;</button>
+  </nav>
+  <div class="mobile-nav"><a href="index.html">Home</a><a href="academic.html">Programmes</a><a href="admission.html">Admissions</a><a href="notices.html">Notices</a><a href="exam.html">Results</a><a href="#">Portals</a><a href="overview.html">About</a></div>
+</div>
+
+<div class="shell">
+  <aside class="side">
+    <div class="who">
+      <span class="avatar">SM</span>
+      <span><b>Sujata Mitra</b><span>Parent</span></span>
+    </div>
+    <nav><div class="sep">Main</div><a href="parent-portal.html" class="on">Dashboard</a><a href="#">Attendance</a><a href="exam.html">Results</a><a href="student-portal.html#fees">Fees</a><div class="sep">Services</div><a href="transport.html">Bus tracking</a><a href="#">Messages</a></nav>
+  </aside>
+  <section class="main">
+<div class="topbar">
+  <div><h1>Parent dashboard</h1><p class="small muted">Watching <b data-ward>Riya Mitra</b> &middot; B.Tech Computer Science, Semester 5</p></div>
+  <select id="childSelect" style="max-width:230px">
+    <option value="22CSE0142">Riya Mitra &middot; 22CSE0142</option>
+    <option value="22CSE0143">Arka Ghosh &middot; 22CSE0143</option>
+  </select>
+</div>
+
+<div class="kpis"><div class="kpi"><span>Attendance</span><b>92%</b><div class="delta">this semester</div></div><div class="kpi"><span>SGPA</span><b>8.4</b><div class="delta">semester 4</div></div><div class="kpi"><span>Fee due</span><b>&#8377;42,500</b><div class="delta warn">30 Nov 2026</div></div><div class="kpi"><span>Bus ETA</span><b>12 min</b><div class="delta">route 1</div></div></div>
+
+<div class="grid g2" style="align-items:start">
+  <div class="panel">
+    <h2>Attendance today</h2>
+    <p class="sub">Three classes scheduled, two attended</p>
+    <ul class="rows">
+      <li><span>CSE 301 Data Structures &middot; 09:00</span><span class="badge b-ok">Present</span></li>
+      <li><span>CSE 305 Lab &middot; 11:00</span><span class="badge b-ok">Present</span></li>
+      <li><span>MGT 210 Economics &middot; 14:00</span><span class="badge b-warn">Not marked</span></li>
+    </ul>
+    <div class="note">Attendance alerts are sent to this number when a class is missed without leave.</div>
+  </div>
+  <div class="panel">
+    <h2>Approvals waiting for you</h2>
+    <p class="sub">Hostel outpass and leave requests</p>
+    <ul class="rows">
+      <li><span>Outpass &middot; 2 Nov, 6 pm to 9 pm</span>
+        <span style="display:flex;gap:.4rem"><button class="btn btn-primary btn-sm" type="button" onclick="this.textContent='Approved';this.className='btn btn-ghost btn-sm'">Approve</button>
+        <button class="btn btn-ghost btn-sm" type="button" onclick="this.textContent='Declined'">Decline</button></span></li>
+      <li><span>Leave &middot; 5 Nov, medical</span>
+        <span><button class="btn btn-ghost btn-sm" type="button" onclick="this.textContent='Approved'">Approve</button></span></li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h2>Latest result</h2>
+    <p class="sub">Semester 4 &middot; published 12 July 2026</p>
+    <div style="display:flex;align-items:center;gap:18px">
+      <div class="ring" style="--p:84%"><b>8.4</b></div>
+      <div><p class="small muted">SGPA improved by 0.3 over the previous semester.</p>
+        <a class="btn btn-ghost btn-sm" style="margin-top:.6rem" href="exam.html">Full result</a></div>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Bus and fees</h2>
+    <p class="sub">Route 1 &middot; Salt Lake / Sector V</p>
+    <ul class="rows">
+      <li><span>Bus arriving at your stop</span><b>12 min</b></li>
+      <li><span>Fee due 30 November</span><b>&#8377;42,500</b></li>
+      <li><span>Last payment</span><span class="date">12 Jul 2026 &middot; &#8377;42,500</span></li>
+    </ul>
+    <a class="btn btn-primary btn-sm" style="margin-top:.8rem" href="student-portal.html#fees">Pay fees</a>
+  </div>
+</div>
+</section>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-cols">
+      <div>
+        <div class="brand" style="margin-bottom:.8rem">
+          <span class="crest">E</span>
+          <span><b>EduSphere Institute of Technology</b><span>Est. 1998</span></span>
+        </div>
+        <p class="small muted" style="max-width:24rem">Campus Road, Salt Lake, Kolkata 700091, Kolkata, West Bengal. An autonomous institute offering
+        undergraduate and postgraduate programmes in engineering, science and management.</p>
+      </div>
+      <div>
+        <h4>Institute</h4>
+        <ul>
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="academic.html">Programmes</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="iqac.html">Quality &amp; accreditation</a></li>
+          <li><a href="architecture.html">System map</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Portals</h4>
+        <ul>
+          <li><a href="student-portal.html">Student</a></li>
+          <li><a href="parent-portal.html">Parent</a></li>
+          <li><a href="faculty-console.html">Faculty</a></li>
+          <li><a href="admin-console.html">Admin &amp; staff</a></li>
+          <li><a href="login.html">Sign in</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Campus Road, Salt Lake, Kolkata 700091</li>
+          <li><a href="tel:+913340000000">+91 33 4000 0000</a></li>
+          <li><a href="mailto:info@edusphere.edu.in">info@edusphere.edu.in</a></li>
+          <li><a href="career.html">Careers</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p>&copy; <span id="yr">2026</span> EduSphere Institute of Technology. All rights reserved.</p>
+      <p>Demonstration site &mdash; figures and records are sample data.</p>
+    </div>
+  </div>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

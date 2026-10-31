@@ -3,151 +3,140 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Architecture | EduSphere</title>
-<meta name="description" content="Client surfaces and backend modules of the EduSphere system.">
+<title>System map | EduSphere</title>
+<meta name="description" content="Client surfaces, modules, workers and routes.">
 <link rel="stylesheet" href="assets/style.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1b3a'/%3E%3Ctext x='16' y='23' font-family='Arial' font-weight='bold' font-size='17' fill='%23f6c445' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23A9002A'/%3E%3Ctext x='16' y='23' font-family='Georgia' font-size='17' fill='%23F8F2E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
 </head>
 <body>
-<header class="site-head">
-  <div class="head-main">
-    <div class="wrap">
-      <a class="brand-block" href="index.html">
-        <span class="crest-lg"><svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true"><defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f7d06a"/><stop offset="55%" stop-color="#d9a127"/><stop offset="100%" stop-color="#a9781a"/></linearGradient></defs><circle cx="32" cy="32" r="31" fill="url(#cg)"/><circle cx="32" cy="32" r="26" fill="none" stroke="#7a5510" stroke-width="1.4" opacity=".6"/><circle cx="32" cy="32" r="21" fill="none" stroke="#7a5510" stroke-width=".8" opacity=".45"/><text x="32" y="41" text-anchor="middle" font-family="Georgia,serif" font-size="24" font-weight="700" fill="#4a3308">E</text></svg></span>
-        <span class="brand-name">EduSphere<span>Institute of Technology</span></span>
-        <span class="head-divider"></span>
-        <span class="accred">
-          <span>Recognised by UGC &middot; Approved by AICTE</span>
-          <span>Affiliated to MAKAUT, West Bengal</span>
-          <span>NAAC accredited &middot; NIRF participant</span>
-        </span>
-      </a>
-      <div class="tools-vert">
-        <a href="student-portal.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg><span>Email login</span></a>
-        <a href="faculty-console.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Staff</span></a>
-        <a href="admin-console.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Admin Login</span></a>
-        <a href="students.html#library"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Library</span></a>
-        <a class="fee-vert" href="student-portal.html#fees"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12M6 8h12M15 3c0 5-4 5-9 5l9 9"/></svg><span>Semester Fee</span></a>
-        <a href="#search" aria-label="Search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span>Search</span></a>
+<div class="nav-shell">
+  <nav class="navbar">
+    <a class="brand" href="index.html">
+      <span class="crest">E</span>
+      <span><b>EduSphere</b><span>Institute of Technology</span></span>
+    </a>
+    <div class="navlinks"><a href="index.html">Home</a><div class="has-menu"><a href="academic.html">Programmes &#9662;</a><div class="menu"><a href="academic.html">All programmes</a><a href="admission.html#fees">Fee structure</a><a href="academic.html#calendar">Academic calendar</a></div></div><div class="has-menu"><a href="admission.html">Admissions &#9662;</a><div class="menu"><a href="admission.html">Apply online</a><a href="admission.html#process">Admission process</a><a href="admission.html#seats">Seats &amp; eligibility</a></div></div><a href="notices.html">Notices</a><div class="has-menu"><a href="exam.html">Results &#9662;</a><div class="menu"><a href="exam.html">Result lookup</a><a href="verify.html">Certificate verify</a></div></div><div class="has-menu"><a href="#">Portals &#9662;</a><div class="menu"><a href="student-portal.html">Student portal</a><a href="parent-portal.html">Parent portal</a><a href="faculty-console.html">Faculty portal</a><a href="admin-console.html">Admin console</a></div></div><a href="overview.html">About</a><a class="btn btn-primary btn-sm nav-cta" href="admission.html">Apply now</a></div>
+    <button class="burger" aria-label="Menu">&#9776;</button>
+  </nav>
+  <div class="mobile-nav"><a href="index.html">Home</a><a href="academic.html">Programmes</a><a href="admission.html">Admissions</a><a href="notices.html">Notices</a><a href="exam.html">Results</a><a href="#">Portals</a><a href="overview.html">About</a></div>
+</div>
+<main><section class="band" style="padding:34px 0 6px">
+  <div class="wrap">
+    <p class="small muted"><a href="index.html">Home</a> &nbsp;/&nbsp; System</p>
+    <h1 style="font-size:2.05rem;margin-top:.5rem">How the system is put together</h1>
+    <p class="muted" style="margin-top:.6rem;max-width:52rem">Four client surfaces over one modular backend, with background workers and a fixed route shape.</p>
+  </div>
+</section>
+
+<section class="band" style="padding-top:16px">
+  <div class="wrap">
+    <div class="glass" style="padding:22px">
+      <p class="eyebrow">Clients</p>
+      <h2 style="font-size:1.5rem;margin:.4rem 0 1rem">Four surfaces, one record</h2>
+      <div class="grid g4">
+        <a class="card" href="index.html"><h3>Public site</h3><p>Marketing, notices, results and the admission portal.</p></a>
+        <a class="card" href="admin-console.html"><h3>Admin &amp; staff console</h3><p>Records, admissions, finance and operations.</p></a>
+        <a class="card" href="faculty-console.html"><h3>Faculty and gradebook</h3><p>Attendance sessions, marks entry and mentees.</p></a>
+        <a class="card" href="student-portal.html"><h3>Student &amp; parent portal</h3><p>Attendance, marks, fees and transport.</p></a>
       </div>
     </div>
   </div>
-  <div class="navbar">
-    <div class="wrap">
-      <a class="pill" href="index.html">Home</a><div class="has-menu"><a class="pill" href="overview.html">Overview <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></a><div class="menu"><a href="overview.html#about">About the institute</a><a href="overview.html#vision">Vision &amp; mission</a><a href="overview.html#leadership">Leadership</a><a href="overview.html#campus">Campus</a><a href="iqac.html">Accreditation</a></div></div><div class="has-menu"><a class="pill" href="academic.html">Academic <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></a><div class="menu"><a href="academic.html#programmes">Programmes</a><a href="academic.html#departments">Departments</a><a href="academic.html#calendar">Academic calendar</a><a href="faculty-console.html">Faculty directory</a></div></div><div class="has-menu"><a class="pill" href="students.html">Students <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></a><div class="menu"><a href="student-portal.html">Student / parent portal</a><a href="students.html#clubs">Clubs &amp; societies</a><a href="students.html#hostel">Hostel</a><a href="students.html#scholarships">Scholarships</a></div></div><div class="has-menu"><a class="pill" href="exam.html">Exam <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></a><div class="menu"><a href="exam.html#cell">Examination cell</a><a href="exam.html#results">Results</a><a href="exam.html#timetable">Time table</a><a href="exam.html#notices">Notices</a></div></div><div class="has-menu"><a class="pill" href="research.html">R&amp;D <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></a><div class="menu"><a href="research.html">Research overview</a><a href="research.html#projects">Projects</a><a href="research.html#publications">Publications</a></div></div><a class="pill" href="admission.html">Admission</a><div class="has-menu"><a class="pill" href="feedback.html">Feedback <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></a><div class="menu"><a href="feedback.html">Student feedback</a><a href="feedback.html#grievance">Grievance redressal</a><a href="contact.html">Contact</a></div></div><div class="has-menu"><a class="pill" href="iqac.html">IQAC <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></a><div class="menu"><a href="iqac.html">About IQAC</a><a href="iqac.html#naac">NAAC</a><a href="iqac.html#aqar">AQAR</a></div></div><a class="pill" href="iqac.html#naac">NAAC</a><a class="pill" href="iqac.html#nirf">NIRF</a><a class="pill" href="iqac.html#disclosure">Self Disclosure</a><a class="pill" href="career.html">Career</a>
-      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
-    </div>
-  </div>
-  <nav class="mobile-nav"><a href="index.html">Home</a><a class="parent" href="overview.html">Overview &#9662;</a><div class="sub" style="display:none"><a href="overview.html#about">About the institute</a><a href="overview.html#vision">Vision &amp; mission</a><a href="overview.html#leadership">Leadership</a><a href="overview.html#campus">Campus</a><a href="iqac.html">Accreditation</a></div><a class="parent" href="academic.html">Academic &#9662;</a><div class="sub" style="display:none"><a href="academic.html#programmes">Programmes</a><a href="academic.html#departments">Departments</a><a href="academic.html#calendar">Academic calendar</a><a href="faculty-console.html">Faculty directory</a></div><a class="parent" href="students.html">Students &#9662;</a><div class="sub" style="display:none"><a href="student-portal.html">Student / parent portal</a><a href="students.html#clubs">Clubs &amp; societies</a><a href="students.html#hostel">Hostel</a><a href="students.html#scholarships">Scholarships</a></div><a class="parent" href="exam.html">Exam &#9662;</a><div class="sub" style="display:none"><a href="exam.html#cell">Examination cell</a><a href="exam.html#results">Results</a><a href="exam.html#timetable">Time table</a><a href="exam.html#notices">Notices</a></div><a class="parent" href="research.html">R&amp;D &#9662;</a><div class="sub" style="display:none"><a href="research.html">Research overview</a><a href="research.html#projects">Projects</a><a href="research.html#publications">Publications</a></div><a href="admission.html">Admission</a><a class="parent" href="feedback.html">Feedback &#9662;</a><div class="sub" style="display:none"><a href="feedback.html">Student feedback</a><a href="feedback.html#grievance">Grievance redressal</a><a href="contact.html">Contact</a></div><a class="parent" href="iqac.html">IQAC &#9662;</a><div class="sub" style="display:none"><a href="iqac.html">About IQAC</a><a href="iqac.html#naac">NAAC</a><a href="iqac.html#aqar">AQAR</a></div><a href="iqac.html#naac">NAAC</a><a href="iqac.html#nirf">NIRF</a><a href="iqac.html#disclosure">Self Disclosure</a><a href="career.html">Career</a></nav>
-  <div class="actions">
-    <div class="wrap">
-      <a class="act act-red" href="admission.html">Admission</a>
-      <a class="act" href="student-portal.html">Student Area</a>
-      <a class="act" href="admission.html#prospectus">Prospectus</a>
-      <a class="act" href="contact.html#conference">Conference Registration</a>
-      <a class="act" href="research.html">Achievement</a>
-      <a class="act" href="exam.html#timetable">Routine</a>
-    </div>
-  </div>
-</header>
-
-<section class="page-head">
-  <div class="wrap">
-    <p class="crumbs"><a href="index.html">Home</a> &nbsp;/&nbsp; Architecture</p>
-    <h1>How the system is put together</h1>
-    <p>Four client surfaces over one modular monolith — every module owns its data and scales on its own.</p>
-  </div>
 </section>
 
-<section class="band">
+<section class="band" style="padding-top:0">
   <div class="wrap">
-    <p class="eyebrow">Clients</p>
-    <h2 style="font-size:1.6rem;margin:.4rem 0 1.2rem">Four surfaces, one record</h2>
-    <div class="arch">
-      <div class="arch-hd">Clients</div>
-      <div class="arch-body"><a class="node" href="index.html"><b>Public Site + Admission Portal</b><span>marketing &amp; applications</span></a><a class="node" href="admin-console.html"><b>Admin / Staff Console</b><span>records &amp; approvals</span></a><a class="node" href="faculty-console.html"><b>Faculty Web + Gradebook</b><span>courses &amp; marks</span></a><a class="node" href="student-portal.html"><b>Student / Parent Portal</b><span>attendance, fees, notices</span></a></div>
-      <div class="arch-foot">A change in one surface is visible in the others &mdash; they read the same student record.</div>
+    <div class="glass" style="padding:22px">
+      <p class="eyebrow">Backend</p>
+      <h2 style="font-size:1.5rem;margin:.4rem 0 .4rem">Modular monolith</h2>
+      <p class="muted small" style="max-width:52rem">Each module owns its data and its service layer. Modules call each other
+      in-process rather than over the network, so the system stays fast and any module can be separated later.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:1.1rem"><span class="chip">Auth / IAM</span><span class="chip">Tenancy</span><span class="chip">Admissions</span><span class="chip">Students</span><span class="chip">Faculty</span><span class="chip">Academics</span><span class="chip">Timetable</span><span class="chip">Attendance</span><span class="chip">Exams &amp; Results</span><span class="chip">Fees &amp; Payments</span><span class="chip">Library</span><span class="chip">Hostel</span><span class="chip">Transport</span><span class="chip">Learning material</span><span class="chip">Comms</span><span class="chip">Reports</span><span class="chip">Files</span><span class="chip">Audit</span></div>
     </div>
   </div>
 </section>
 
-<section class="band mist">
+<section class="band" style="padding-top:0">
   <div class="wrap">
-    <p class="eyebrow">Backend</p>
-    <h2 style="font-size:1.6rem;margin:.4rem 0 .4rem">Modular monolith &mdash; horizontally scaled services</h2>
-    <p class="muted small" style="max-width:52rem">Each module below is a bounded context with its own tables, service layer and
-    events. Modules call each other in-process rather than over the network, so the system stays fast
-    and a module can be separated later without rewriting its callers.</p>
-    <div class="mod-grid"><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy)"><b style="display:block;font-size:.82rem">Auth / IAM</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.2rem">Identity, roles, sessions</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy)"><b style="display:block;font-size:.82rem">Tenancy</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.2rem">Multi-institute isolation</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy)"><b style="display:block;font-size:.82rem">Admissions</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.2rem">Applications, eligibility, offers</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy)"><b style="display:block;font-size:.82rem">Students</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.2rem">Records, guardians, documents</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy)"><b style="display:block;font-size:.82rem">Faculty</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.2rem">Profiles, workload, appraisal</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy)"><b style="display:block;font-size:.82rem">Academics</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.2rem">Programmes, courses, syllabus</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy)"><b style="display:block;font-size:.82rem">Timetable</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.2rem">Slots, rooms, clashes</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy)"><b style="display:block;font-size:.82rem">Attendance</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.2rem">QR / geo check-in</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy)"><b style="display:block;font-size:.82rem">Exams &amp; Results</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.2rem">Papers, marks, transcripts</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy)"><b style="display:block;font-size:.82rem">Fees &amp; Payments</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.2rem">Invoices, receipts, refunds</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy)"><b style="display:block;font-size:.82rem">Library</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.2rem">Catalogue, issue, fines</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy)"><b style="display:block;font-size:.82rem">Hostel</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.2rem">Blocks, rooms, allotment</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy)"><b style="display:block;font-size:.82rem">Transport</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.2rem">Routes, passes, GPS</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy)"><b style="display:block;font-size:.82rem">Learning material</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.2rem">Material, assignments</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy)"><b style="display:block;font-size:.82rem">Comms</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.2rem">Email, SMS, push</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy)"><b style="display:block;font-size:.82rem">Reports</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.2rem">Dashboards, exports</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy)"><b style="display:block;font-size:.82rem">Files</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.2rem">Uploads, versioning</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy)"><b style="display:block;font-size:.82rem">Audit</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.2rem">Immutable event log</span></div></div>
-    <div style="margin-top:1.6rem;display:flex;gap:.6rem;flex-wrap:wrap">
-      <span class="badge-demo">+ GPS</span><span class="badge-demo">Notify</span><span class="badge-demo">&amp; BI</span>
+    <div class="glass" style="padding:22px">
+      <p class="eyebrow">Workers</p>
+      <h2 style="font-size:1.5rem;margin:.4rem 0 .4rem">Background jobs, separate deployment</h2>
+      <p class="muted small" style="max-width:52rem">Long-running work stays off the request path; each worker scales on its own queue.</p>
+      <div class="grid g3" style="margin-top:1.1rem"><div class="card"><h3>timetable-solver</h3><p>builds clash-free class and exam timetables</p></div><div class="card"><h3>pdf-renderer</h3><p>ID cards, marksheets, receipts</p></div><div class="card"><h3>notification-dispatcher</h3><p>SMS, email, push, messaging</p></div><div class="card"><h3>bulk-import</h3><p>students and marks from spreadsheets</p></div><div class="card"><h3>fee-reminders + late-fine</h3><p>scheduled reminders and penalties</p></div><div class="card"><h3>payment-reconciliation</h3><p>settlement against ledger</p></div><div class="card"><h3>report-builder</h3><p>heavy exports to file storage</p></div></div>
     </div>
   </div>
 </section>
 
-<section class="band">
+<section class="band" style="padding-top:0">
   <div class="wrap">
-    <p class="eyebrow">Workers</p>
-    <h2 style="font-size:1.6rem;margin:.4rem 0 .4rem">Background jobs &mdash; separate deployment</h2>
-    <p class="muted small" style="max-width:52rem">Long-running and bursty work is kept off the request path.
-    Each worker scales on its own queue depth, so a report export never slows down an admission form.</p>
-    <div class="mod-grid" style="grid-template-columns:repeat(4,1fr)"><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy);text-align:left;padding:.85rem .9rem"><b style="display:block;font-size:.82rem">timetable-solver</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.25rem">builds clash-free class and exam timetables</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy);text-align:left;padding:.85rem .9rem"><b style="display:block;font-size:.82rem">pdf-renderer</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.25rem">ID cards, marksheets, receipts</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy);text-align:left;padding:.85rem .9rem"><b style="display:block;font-size:.82rem">notification-dispatcher</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.25rem">SMS / email / push / WhatsApp</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy);text-align:left;padding:.85rem .9rem"><b style="display:block;font-size:.82rem">bulk-import</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.25rem">students and marks from spreadsheets</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy);text-align:left;padding:.85rem .9rem"><b style="display:block;font-size:.82rem">fee-reminders + late-fine</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.25rem">scheduled reminders and penalties</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy);text-align:left;padding:.85rem .9rem"><b style="display:block;font-size:.82rem">payment-reconciliation</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.25rem">Gateway settlements</span></div><div class="mod" style="border-color:#c9d4e4;background:#fff;color:var(--navy);text-align:left;padding:.85rem .9rem"><b style="display:block;font-size:.82rem">report-builder</b><span style="display:block;font-size:.68rem;color:var(--muted);margin-top:.25rem">heavy exports to file storage</span></div></div>
+    <div class="glass" style="padding:22px">
+      <p class="eyebrow">Routes</p>
+      <h2 style="font-size:1.5rem;margin:.4rem 0 .6rem">Route map</h2>
+      <div class="table-shell"><table>
+        <thead><tr><th>Surface</th><th>Routes</th></tr></thead>
+        <tbody>
+          <tr><td>Public</td><td>Home &middot; programmes &middot; campus &middot; notices &middot; events &middot; result lookup &middot; certificate verify &middot; contact</td></tr>
+          <tr><td>Admission</td><td>Register &middot; seven-step wizard &middot; status tracker &middot; hall ticket &middot; offer and enrolment</td></tr>
+          <tr><td>Student</td><td>Dashboard &middot; profile &middot; timetable &middot; attendance &middot; results &middot; fees &middot; library &middot; hostel &middot; transport &middot; helpdesk</td></tr>
+          <tr><td>Parent</td><td>Child switcher &middot; attendance &middot; approvals &middot; results &middot; fees &middot; bus tracking &middot; messages</td></tr>
+          <tr><td>Faculty</td><td>Attendance session &middot; gradebook &middot; courses &middot; mentees &middot; leave</td></tr>
+          <tr><td>Academic coordinator</td><td>Department view &middot; allocation &middot; timetable builder &middot; marks approval</td></tr>
+          <tr><td>Exam cell</td><td>Setup &middot; schedule &middot; seating &middot; hall tickets &middot; moderation &middot; revaluation</td></tr>
+          <tr><td>Finance</td><td>Structures &middot; collection &middot; online payments &middot; reconciliation &middot; defaulters &middot; refunds</td></tr>
+          <tr><td>Services</td><td>Library &middot; hostel &middot; transport</td></tr>
+          <tr><td>Administration</td><td>Campus admin &middot; group super admin</td></tr>
+        </tbody>
+      </table></div>
+    </div>
   </div>
 </section>
-
-<section class="band mist">
-  <div class="wrap">
-    <p class="eyebrow">Routes</p>
-    <h2 style="font-size:1.6rem;margin:.4rem 0 .4rem">Route map &mdash; every surface and portal</h2>
-    <p class="muted small" style="max-width:52rem">Every surface has a fixed URL shape. Public pages are built to be found by search;
-    the portals sit behind authentication and share one session.</p>
-    <div class="rtree-wrap"><ul class="rtree"><li><span class="grp">PUBLIC &mdash; SEO</span><ul><li><a href="index.html">/ Home</a> &nbsp;<span class="rd">campus switcher, highlights, notices ticker, CTA &ldquo;Apply Now&rdquo;</span></li><li><a href="academic.html#programmes">/programs</a></li><li>Filter &nbsp;<span class="rd">campus, level (UG / PG / Diploma), department, mode</span></li><li>Sort &nbsp;<span class="rd">name, fees, duration</span></li><li>Program card &rarr; /programs/[slug] &nbsp;<span class="rd">syllabus, eligibility, fees, seats, FAQs</span></li><li><a href="overview.html#campus">/campuses/[slug]</a> &nbsp;<span class="rd">facilities, map, contacts, gallery</span></li><li><a href="notices.html">/notices</a> &nbsp;<span class="rd">search, category filter, pagination, attachments</span></li><li><a href="notices.html">/events</a> &nbsp;<span class="rd">calendar view / list view toggle</span></li><li><a href="exam.html#results">/results/lookup</a> &nbsp;<span class="rd">roll no + DOB + captcha &rarr; published result</span></li><li>/verify/[certificateId] &nbsp;<span class="rd">QR certificate verification</span></li><li><a href="contact.html">/contact</a> &nbsp;<span class="rd">enquiry form &rarr; CRM lead</span></li></ul></li><li><span class="grp">ADMISSION PORTAL &mdash; /apply</span><ul><li><a href="admission.html">Register</a> &nbsp;<span class="rd">email / phone OTP</span></li><li>Application wizard &nbsp;<span class="rd">autosave at every step</span></li><li>Step 1 &nbsp;<span class="rd">program &amp; campus choice (up to 3 preferences)</span></li><li>Step 2 &nbsp;<span class="rd">personal details (name, DOB, category, Aadhaar / ID, photo)</span></li><li>Step 3 &nbsp;<span class="rd">guardian details</span></li><li>Step 4 &nbsp;<span class="rd">academic history (board, marks, upload marksheets)</span></li><li>Step 5 &nbsp;<span class="rd">documents (checklist, drag-drop, size / type validation)</span></li><li>Step 6 &nbsp;<span class="rd">review &amp; declaration</span></li><li>Step 7 &nbsp;<span class="rd">application fee payment &rarr; receipt</span></li><li>Application status tracker &nbsp;<span class="rd">submitted &rarr; verified &rarr; merit &rarr; offer</span></li><li>Entrance hall ticket &nbsp;<span class="rd">download</span></li><li>Offer letter &nbsp;<span class="rd">accept &rarr; pay admission fee &rarr; enrolment</span></li></ul></li><li><span class="grp">AUTH</span><ul><li>/login &nbsp;<span class="rd">username / email / phone + password; code login for parents</span></li><li>/login/sso &nbsp;<span class="rd">single sign-on for staff</span></li><li>/forgot-password, /reset-password/[token]</li><li>/2fa &nbsp;<span class="rd">second factor for admins / accountants</span></li><li>/select-campus &nbsp;<span class="rd">for multi-campus staff</span></li></ul></li><li><span class="grp">STUDENT PORTAL &mdash; /student</span><ul><li><a href="student-portal.html">Dashboard</a> &nbsp;<span class="rd">today&rsquo;s classes, attendance %, due fees, upcoming exams, notices</span></li><li>Profile &nbsp;<span class="rd">tabs: personal, academic, documents, ID card download</span></li><li><a href="exam.html#timetable">Timetable</a> &nbsp;<span class="rd">week grid, day list, export to calendar</span></li><li>Attendance</li><li>Subject-wise % &nbsp;<span class="rd">with shortage warning (&lt; 75%)</span></li><li>Calendar heatmap</li><li>Scan QR &nbsp;<span class="rd">mobile camera + location permission</span></li><li>Leave / condonation &nbsp;<span class="rd">requests</span></li></ul></li><li><span class="grp">STUDENT PORTAL &mdash; courses &amp; services</span><ul><li>Courses &nbsp;<span class="rd">material, announcements, discussion</span></li><li>Assignments &nbsp;<span class="rd">submit, resubmit before deadline, plagiarism score</span></li><li>Quizzes &nbsp;<span class="rd">timed, auto-graded</span></li><li>Exams &nbsp;<span class="rd">schedule, hall ticket, seat allocation, results, revaluation request</span></li><li>Fees &nbsp;<span class="rd">ledger, pay now, instalments, receipts, scholarships</span></li><li>Library &nbsp;<span class="rd">search catalogue, my loans, reserve, fines</span></li><li>Hostel &nbsp;<span class="rd">room details, mess menu, outpass request, complaints</span></li><li>Transport &nbsp;<span class="rd">route, stop, live bus map, pass download</span></li><li>Helpdesk &nbsp;<span class="rd">tickets, certificate requests (bonafide, TC, character)</span></li></ul></li><li><span class="grp">PARENT PORTAL &mdash; /parent</span><ul><li>Child switcher &nbsp;<span class="rd">multiple wards across campuses</span></li><li>Dashboard &nbsp;<span class="rd">attendance today, latest marks, fee dues, bus ETA</span></li><li>Attendance &amp; leave approvals &nbsp;<span class="rd">approve hostel outpass</span></li><li>Results &amp; progress report &nbsp;<span class="rd">term comparison chart</span></li><li>Fees &nbsp;<span class="rd">pay, receipts, history</span></li><li>Live bus tracking</li><li>Messages &nbsp;<span class="rd">with class mentor / faculty</span></li><li>PTM booking &nbsp;<span class="rd">slot picker</span></li></ul></li></ul><ul class="rtree"><li><span class="grp">FACULTY PORTAL &mdash; /faculty</span><ul><li>Dashboard &nbsp;<span class="rd">today&rsquo;s lectures, pending attendance, pending grading</span></li><li>My timetable &nbsp;<span class="rd">substitution and swap requests</span></li><li><a href="faculty-console.html">Attendance</a></li><li>Start session &nbsp;<span class="rd">manual roll / rotating QR / QR + geofence</span></li><li>Live counter &nbsp;<span class="rd">flag suspicious scans</span></li><li>Edit window &nbsp;<span class="rd">24 hours, history per section</span></li><li>Courses &nbsp;<span class="rd">materials upload, assignments, quiz builder, grading queue</span></li><li>Gradebook &nbsp;<span class="rd">internal marks grid, spreadsheet import, lock &amp; submit to HoD</span></li><li>Mentees &nbsp;<span class="rd">student list, attendance alerts, notes</span></li><li>Leave application &nbsp;<span class="rd">staff leave + balance</span></li><li>Payslips &nbsp;<span class="rd">download</span></li></ul></li><li><span class="grp">MOD / ACADEMIC COORDINATOR &mdash; /academics</span><ul><li>Department dashboard &nbsp;<span class="rd">faculty load, syllabus coverage, attendance trends</span></li><li>Course &amp; subject allocation &nbsp;<span class="rd">faculty &harr; subject &harr; section</span></li><li>Timetable builder</li><li>Constraints panel &nbsp;<span class="rd">rooms, faculty availability, max hours / day</span></li><li>Auto-generate &nbsp;<span class="rd">progress bar &rarr; draft</span></li><li>Grid editor &nbsp;<span class="rd">drag-drop with clash highlighting</span></li><li>Publish &nbsp;<span class="rd">versioned</span></li><li>Marks approval &nbsp;<span class="rd">review grids, return to faculty, approve</span></li><li>Attendance shortage list &nbsp;<span class="rd">export, notify parents</span></li></ul></li><li><span class="grp">EXAM CELL &mdash; /exams</span><ul><li>Exam setup &nbsp;<span class="rd">term, type, grading scheme, weightages</span></li><li>Schedule builder &nbsp;<span class="rd">date sheet, clash check per student</span></li><li>Seating plan generator &nbsp;<span class="rd">rooms &times; capacity, roll interleaving</span></li><li>Hall tickets &nbsp;<span class="rd">bulk generate, eligibility filter</span></li><li>Invigilation duty roster</li><li>Marks moderation &amp; processing &nbsp;<span class="rd">preview &rarr; publish</span></li><li>Revaluation queue &nbsp;<span class="rd">requests</span></li></ul></li><li><span class="grp">FINANCE &mdash; /finance</span><ul><li>Fee structures &nbsp;<span class="rd">by program / batch / category; heads; instalments</span></li><li>Fee assignment &nbsp;<span class="rd">bulk to batch, concessions, scholarships</span></li><li>Collection desk &nbsp;<span class="rd">search student, counter payment: cash / cheque / DD / UPI</span></li><li>Online payments &nbsp;<span class="rd">transactions by status, gateway, date; export</span></li><li>Reconciliation &nbsp;<span class="rd">settlement vs ledger, mismatches</span></li><li>Defaulters &nbsp;<span class="rd">filter by days overdue, bulk reminder</span></li><li>Refunds &nbsp;<span class="rd">request &rarr; approval &rarr; refund</span></li><li>Reports &nbsp;<span class="rd">day book, head-wise collection, outstanding, tax</span></li></ul></li><li><span class="grp">LIBRARY &mdash; /library</span><ul><li>Catalogue &nbsp;<span class="rd">add book, copies, label print</span></li><li>Circulation desk &nbsp;<span class="rd">scan member + book &rarr; issue / return / renew</span></li><li>Reservations &amp; fines &nbsp;<span class="rd">queue, overdue list</span></li><li>Reports &nbsp;<span class="rd">most issued, inventory, lost books</span></li></ul></li><li><span class="grp">HOSTEL &mdash; /hostel</span><ul><li>Room grid &nbsp;<span class="rd">blocks &rarr; floors &rarr; rooms, occupancy colour map</span></li><li>Allocation &nbsp;<span class="rd">applications, auto-allocate by preference / gender / year</span></li><li>Outpass &amp; gate log &nbsp;<span class="rd">approvals, scan at gate</span></li><li>Mess &nbsp;<span class="rd">menu planner, attendance, billing</span></li><li>Complaints &nbsp;<span class="rd">category, service target, status board</span></li></ul></li><li><span class="grp">TRANSPORT &mdash; /transport</span><ul><li>Routes &amp; stops &nbsp;<span class="rd">map editor, stop timings</span></li><li>Vehicles &amp; drivers &nbsp;<span class="rd">documents, expiry alerts</span></li><li>Student assignment &nbsp;<span class="rd">route + stop, transport fee link</span></li><li>Live fleet map &nbsp;<span class="rd">all buses, speed, delay alerts</span></li></ul></li><li><span class="grp">CAMPUS ADMIN &mdash; /admin</span><ul><li><a href="admin-console.html">Dashboard</a> &nbsp;<span class="rd">key numbers for the campus</span></li><li>Students &nbsp;<span class="rd">search, filter by programme / batch / status, bulk actions, import &amp; export</span></li><li>Staff &nbsp;<span class="rd">records, roles, departments</span></li><li>Academic structure &nbsp;<span class="rd">departments, programmes, batches, sections, academic year</span></li><li>Admissions &nbsp;<span class="rd">pipeline board, merit lists, seat matrix, offer letters</span></li><li>Communication &nbsp;<span class="rd">announcement composer: audience, channels, schedule</span></li><li>Certificates &nbsp;<span class="rd">templates, issue, QR verification</span></li><li>Settings &nbsp;<span class="rd">campus profile, holidays, grading schemes, attendance rules</span></li></ul></li><li><span class="grp">GROUP SUPER ADMIN &mdash; /group</span><ul><li>Campuses &nbsp;<span class="rd">create a campus, domain, branding</span></li><li>Cross-campus analytics &nbsp;<span class="rd">enrolment, revenue, results, attendance</span></li><li>Global roles &amp; policies</li><li>Billing / subscription &nbsp;<span class="rd">plan, usage</span></li><li>System &nbsp;<span class="rd">audit log viewer, integrations, access keys, backup status</span></li></ul></li></ul></div>
-  </div>
-</section>
-
-
+</main>
 <footer class="foot">
   <div class="wrap">
-    <div class="foot-cols"><div><h3><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg> About Us</h3><ul><li><a href="overview.html">Overview</a></li><li><a href="overview.html#leadership">Man behind the foundation</a></li><li><a href="iqac.html">Accreditation &amp; ranking</a></li><li><a href="gallery.html">Photo &amp; video gallery</a></li><li><a href="notices.html">Newsletter</a></li><li><a href="architecture.html">System architecture</a></li></ul></div><div><h3><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg> Important Documents</h3><ul><li><a href="iqac.html#disclosure">University certificates</a></li><li><a href="iqac.html#disclosure">Act, statutes &amp; ordinances</a></li><li><a href="iqac.html#disclosure">Policies &amp; regulations</a></li><li><a href="iqac.html#aqar">EC, court &amp; other resolutions</a></li><li><a href="iqac.html#aqar">Annual reports</a></li><li><a href="academic.html#programmes">PG / UG syllabus</a></li></ul></div><div><h3><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg> Important Links</h3><ul><li><a href="feedback.html">Feedback &amp; grievance</a></li><li><a href="research.html#publications">University publications</a></li><li><a href="academic.html#departments">Academic departments</a></li><li><a href="iqac.html#naac">Affiliation</a></li><li><a href="notices.html">University notifications</a></li><li><a href="notices.html">News &amp; upcoming events</a></li></ul></div><div><h3><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg> Other Links</h3><ul><li><a href="students.html#clubs">Alumni network</a></li><li><a href="students.html#clubs">Vibrant activities</a></li><li><a href="overview.html#campus">Facilities</a></li><li><a href="research.html">Research</a></li><li><a href="admission.html">Admission</a></li><li><a href="career.html">Careers</a></li></ul></div><div><h3><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg> External Learning Resources</h3><ul><li><a href="https://onos.gov.in">ONOS &mdash; One Nation One Subscription</a></li><li><a href="https://nptel.ac.in">NPTEL</a></li><li><a href="https://swayam.gov.in">SWAYAM</a></li><li><a href="https://ndl.iitkgp.ac.in">National Digital Library</a></li><li><a href="https://shodhganga.inflibnet.ac.in">Shodh Ganga</a></li><li><a href="https://swayam.gov.in">MOOCs</a></li></ul></div></div>
-
-    <div class="foot-mid">
+    <div class="foot-cols">
       <div>
-        <h3><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> Address information</h3>
-        <div class="addr-block">
-          <b>EduSphere Institute of Technology</b>
-          Campus Road, Salt Lake, Sector II<br>
-          Kolkata 700091, West Bengal, India
-          <div class="addr-line"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg> +91 33 4000 0000 / +91 33 4000 0001</div>
-          <div class="addr-line"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg> info@edusphere.edu.in</div>
-          <div class="addr-line"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg> admissions@edusphere.edu.in</div>
+        <div class="brand" style="margin-bottom:.8rem">
+          <span class="crest">E</span>
+          <span><b>EduSphere Institute of Technology</b><span>Est. 1998</span></span>
         </div>
-        <div class="hours">
-          <div class="hrow"><span>Monday &ndash; Saturday</span><span>10:00 am &ndash; 5:30 pm</span></div>
-          <div class="hrow"><span>Sunday</span><span>Closed</span></div>
-        </div>
-        <div class="visitors" style="margin-top:16px">
-          <span class="v1">Visitors: 8,88,286</span><span class="v2">Today: 0</span>
-        </div>
+        <p class="small muted" style="max-width:24rem">Campus Road, Salt Lake, Kolkata 700091, Kolkata, West Bengal. An autonomous institute offering
+        undergraduate and postgraduate programmes in engineering, science and management.</p>
       </div>
       <div>
-        <h3><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> Find us on Google Maps</h3>
-        <div class="map-box">
-          <iframe title="Campus location" loading="lazy"
-            src="https://maps.google.com/maps?q=Salt%20Lake%20Sector%20II%2C%20Kolkata&z=14&output=embed"></iframe>
-        </div>
-        <p style="font-size:.76rem;margin-top:.5rem;color:#8fa2bd">Map shows the Salt Lake campus area &mdash; replace the query with the real address.</p>
+        <h4>Institute</h4>
+        <ul>
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="academic.html">Programmes</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="iqac.html">Quality &amp; accreditation</a></li>
+          <li><a href="architecture.html">System map</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Portals</h4>
+        <ul>
+          <li><a href="student-portal.html">Student</a></li>
+          <li><a href="parent-portal.html">Parent</a></li>
+          <li><a href="faculty-console.html">Faculty</a></li>
+          <li><a href="admin-console.html">Admin &amp; staff</a></li>
+          <li><a href="login.html">Sign in</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Campus Road, Salt Lake, Kolkata 700091</li>
+          <li><a href="tel:+913340000000">+91 33 4000 0000</a></li>
+          <li><a href="mailto:info@edusphere.edu.in">info@edusphere.edu.in</a></li>
+          <li><a href="career.html">Careers</a></li>
+        </ul>
       </div>
     </div>
-  </div>
-  <div class="legal-bar">
-    <div class="wrap">
+    <div class="legal">
       <p>&copy; <span id="yr">2026</span> EduSphere Institute of Technology. All rights reserved.</p>
-      <p><a href="#disclaimer">Disclaimer</a> &nbsp;&middot;&nbsp; <a href="admin-console.html">ERP Login</a> &nbsp;&middot;&nbsp; <a href="#screen-reader">Screen Reader</a></p>
+      <p>Demonstration site &mdash; figures and records are sample data.</p>
     </div>
   </div>
 </footer>
-<script src="assets/main.js"></script>
-<script>document.getElementById("yr").textContent=new Date().getFullYear();</script>
+<script src="assets/app.js"></script>
 </body>
 </html>
-

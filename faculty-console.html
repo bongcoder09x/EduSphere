@@ -3,65 +3,119 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Faculty Web + Gradebook | EduSphere</title>
-<meta name="description" content="Faculty console with courses, gradebook and attendance.">
+<title>Faculty portal | EduSphere</title>
+<meta name="description" content="Take attendance, enter marks and track mentees.">
 <link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23A9002A'/%3E%3Ctext x='16' y='23' font-family='Georgia' font-size='17' fill='%23F8F2E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
 </head>
 <body>
-<div class="console">
-  <aside class="side">
-    <div class="brand">
+<div class="nav-shell">
+  <nav class="navbar">
+    <a class="brand" href="index.html">
       <span class="crest">E</span>
-      <span><b>EduSphere</b><small>Dr. A. Banerjee</small></span>
+      <span><b>EduSphere</b><span>Institute of Technology</span></span>
+    </a>
+    <div class="navlinks"><a href="index.html">Home</a><div class="has-menu"><a href="academic.html">Programmes &#9662;</a><div class="menu"><a href="academic.html">All programmes</a><a href="admission.html#fees">Fee structure</a><a href="academic.html#calendar">Academic calendar</a></div></div><div class="has-menu"><a href="admission.html">Admissions &#9662;</a><div class="menu"><a href="admission.html">Apply online</a><a href="admission.html#process">Admission process</a><a href="admission.html#seats">Seats &amp; eligibility</a></div></div><a href="notices.html">Notices</a><div class="has-menu"><a href="exam.html">Results &#9662;</a><div class="menu"><a href="exam.html">Result lookup</a><a href="verify.html">Certificate verify</a></div></div><div class="has-menu"><a class="active" href="#">Portals &#9662;</a><div class="menu"><a href="student-portal.html">Student portal</a><a href="parent-portal.html">Parent portal</a><a href="faculty-console.html">Faculty portal</a><a href="admin-console.html">Admin console</a></div></div><a href="overview.html">About</a><a class="btn btn-primary btn-sm nav-cta" href="admission.html">Apply now</a></div>
+    <button class="burger" aria-label="Menu">&#9776;</button>
+  </nav>
+  <div class="mobile-nav"><a href="index.html">Home</a><a href="academic.html">Programmes</a><a href="admission.html">Admissions</a><a href="notices.html">Notices</a><a href="exam.html">Results</a><a href="#">Portals</a><a href="overview.html">About</a></div>
+</div>
+
+<div class="shell">
+  <aside class="side">
+    <div class="who">
+      <span class="avatar">AB</span>
+      <span><b>Dr. A. Banerjee</b><span>Faculty</span></span>
     </div>
-    <nav><a href="#">Dashboard</a><a href="faculty-console.html" class="on">My courses</a><a href="#">Gradebook</a><a href="#">Attendance (QR / Geo)</a><a href="#">LMS-lite material</a><a href="#">Students</a><a href="#">Timetable</a><a href="#">Comms</a><a href="#">Reports</a></nav>
-    <div class="side-foot"><a href="index.html" style="color:var(--gold)">&larr; Public site</a></div>
+    <nav><div class="sep">Teaching</div><a href="faculty-console.html" class="on">Attendance session</a><a href="#">Gradebook</a><a href="#">My courses</a><a href="#">Course material</a><div class="sep">Students</div><a href="#">Mentees</a><a href="admin-console.html">Reports</a><div class="sep">Personal</div><a href="#">Leave</a><a href="#">Payslips</a></nav>
   </aside>
-  <div class="main">
-    <div class="topbar">
-      <div style="display:flex;align-items:center;gap:.7rem">
-        <h1>Faculty web + gradebook</h1><span class="badge-demo">Demo data</span>
+  <section class="main">
+<div class="topbar">
+  <div><h1>Attendance session</h1><p class="small muted">CSE 301 Data Structures &middot; Semester 3 &middot; Section A &middot; Room B-204</p></div>
+  <div class="tabs"><button class="tab on">Manual</button><button class="tab">Rotating QR</button><button class="tab">QR + location</button></div>
+</div>
+
+<div class="kpis"><div class="kpi"><span>Present</span><b><span id="attPresent">5</span></b><div class="delta">of <span id='attTotal'>5</span> on roll</div></div><div class="kpi"><span>Attendance today</span><b><span id="attPct">100%</span></b><div class="delta">this session</div></div><div class="kpi"><span>Marks pending</span><b>24</b><div class="delta warn">due 28 November</div></div><div class="kpi"><span>Mentees</span><b>18</b><div class="delta">3 flagged for shortage</div></div></div>
+
+<div class="panel">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+    <div><h2>Roster</h2><p class="sub">Tap present or absent for each student</p></div>
+    <div style="display:flex;gap:.5rem"><button class="btn btn-ghost btn-sm" id="markAll" type="button">Mark all present</button>
+    <button class="btn btn-primary btn-sm" id="closeSession" type="button">Close session</button></div>
+  </div>
+  <div class="table-shell" style="margin-top:12px">
+    <table id="roster"><thead><tr><th>Roll</th><th>Student</th><th>Mark</th></tr></thead><tbody>
+    <tr data-state="present"><td>22CSE0142</td><td>Riya Mitra</td><td style="display:flex;gap:.4rem"><button class="btn btn-primary btn-sm" data-mark="present" type="button">Present</button><button class="btn btn-ghost btn-sm" data-mark="absent" type="button">Absent</button></td></tr><tr data-state="present"><td>22CSE0143</td><td>Arka Ghosh</td><td style="display:flex;gap:.4rem"><button class="btn btn-primary btn-sm" data-mark="present" type="button">Present</button><button class="btn btn-ghost btn-sm" data-mark="absent" type="button">Absent</button></td></tr><tr data-state="present"><td>22CSE0144</td><td>Sneha Das</td><td style="display:flex;gap:.4rem"><button class="btn btn-primary btn-sm" data-mark="present" type="button">Present</button><button class="btn btn-ghost btn-sm" data-mark="absent" type="button">Absent</button></td></tr><tr data-state="absent"><td>22CSE0145</td><td>Pratik Sengupta</td><td style="display:flex;gap:.4rem"><button class="btn btn-ghost btn-sm" data-mark="present" type="button">Present</button><button class="btn btn-primary btn-sm" data-mark="absent" type="button">Absent</button></td></tr><tr data-state="present"><td>22CSE0146</td><td>Nabanita Bose</td><td style="display:flex;gap:.4rem"><button class="btn btn-primary btn-sm" data-mark="present" type="button">Present</button><button class="btn btn-ghost btn-sm" data-mark="absent" type="button">Absent</button></td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<div class="panel">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+    <div><h2>Gradebook &mdash; internal assessment</h2><p class="sub">Quiz 20 + mid-semester 30 + assignment 20</p></div>
+    <div style="display:flex;gap:.5rem"><button class="btn btn-ghost btn-sm" id="gbSave" type="button">Save draft</button>
+    <button class="btn btn-primary btn-sm" id="gbLock" type="button">Lock and submit</button></div>
+  </div>
+  <div class="table-shell" style="margin-top:12px">
+    <table id="gradebook"><thead><tr><th>Roll</th><th>Student</th><th>Quiz /20</th><th>Mid-sem /30</th><th>Assignment /20</th><th>Total /70</th></tr></thead>
+    <tbody><tr><td>22CSE0142</td><td>Riya Mitra</td><td><input type="number" min="0" max="20" value="18" data-key="22CSE0142-q"></td><td><input type="number" min="0" max="30" value="26" data-key="22CSE0142-m"></td><td><input type="number" min="0" max="20" value="19" data-key="22CSE0142-a"></td><td class="total"><b>63</b></td></tr><tr><td>22CSE0143</td><td>Arka Ghosh</td><td><input type="number" min="0" max="20" value="16" data-key="22CSE0143-q"></td><td><input type="number" min="0" max="30" value="22" data-key="22CSE0143-m"></td><td><input type="number" min="0" max="20" value="17" data-key="22CSE0143-a"></td><td class="total"><b>55</b></td></tr><tr><td>22CSE0144</td><td>Sneha Das</td><td><input type="number" min="0" max="20" value="12" data-key="22CSE0144-q"></td><td><input type="number" min="0" max="30" value="18" data-key="22CSE0144-m"></td><td><input type="number" min="0" max="20" value="14" data-key="22CSE0144-a"></td><td class="total"><b>44</b></td></tr><tr><td>22CSE0145</td><td>Pratik Sengupta</td><td><input type="number" min="0" max="20" value="11" data-key="22CSE0145-q"></td><td><input type="number" min="0" max="30" value="15" data-key="22CSE0145-m"></td><td><input type="number" min="0" max="20" value="12" data-key="22CSE0145-a"></td><td class="total"><b>38</b></td></tr><tr><td>22CSE0146</td><td>Nabanita Bose</td><td><input type="number" min="0" max="20" value="19" data-key="22CSE0146-q"></td><td><input type="number" min="0" max="30" value="28" data-key="22CSE0146-m"></td><td><input type="number" min="0" max="20" value="20" data-key="22CSE0146-a"></td><td class="total"><b>67</b></td></tr></tbody></table>
+  </div>
+  <div style="display:flex;gap:1.6rem;margin-top:14px;flex-wrap:wrap">
+    <div><span class="small muted">Average</span><div style="font-family:var(--serif);font-size:1.3rem" id="gbAvg">0</div></div>
+    <div><span class="small muted">Highest</span><div style="font-family:var(--serif);font-size:1.3rem" id="gbMax">0</div></div>
+    <div><span class="small muted">Pass rate</span><div style="font-family:var(--serif);font-size:1.3rem" id="gbPass">0%</div></div>
+  </div>
+</div>
+</section>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-cols">
+      <div>
+        <div class="brand" style="margin-bottom:.8rem">
+          <span class="crest">E</span>
+          <span><b>EduSphere Institute of Technology</b><span>Est. 1998</span></span>
+        </div>
+        <p class="small muted" style="max-width:24rem">Campus Road, Salt Lake, Kolkata 700091, Kolkata, West Bengal. An autonomous institute offering
+        undergraduate and postgraduate programmes in engineering, science and management.</p>
       </div>
-      <div class="who"><span class="av">AB</span><span>Dr. A. Banerjee</span></div>
+      <div>
+        <h4>Institute</h4>
+        <ul>
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="academic.html">Programmes</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="iqac.html">Quality &amp; accreditation</a></li>
+          <li><a href="architecture.html">System map</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Portals</h4>
+        <ul>
+          <li><a href="student-portal.html">Student</a></li>
+          <li><a href="parent-portal.html">Parent</a></li>
+          <li><a href="faculty-console.html">Faculty</a></li>
+          <li><a href="admin-console.html">Admin &amp; staff</a></li>
+          <li><a href="login.html">Sign in</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Campus Road, Salt Lake, Kolkata 700091</li>
+          <li><a href="tel:+913340000000">+91 33 4000 0000</a></li>
+          <li><a href="mailto:info@edusphere.edu.in">info@edusphere.edu.in</a></li>
+          <li><a href="career.html">Careers</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="body">
-<div class="kpis">
-  <div class="kpi"><span>Courses this term</span><b>3</b><div class="delta">CSE 301, CSE 402, CSE 505</div></div>
-  <div class="kpi"><span>Students taught</span><b>186</b><div class="delta">across three sections</div></div>
-  <div class="kpi"><span>Marks pending</span><b>24</b><div class="delta" style="color:#8a6100">Due 28 Nov</div></div>
-  <div class="kpi"><span>Attendance below 75%</span><b>9</b><div class="delta" style="color:#a11b1b">Needs follow-up</div></div>
-</div>
-
-<div class="panel">
-  <h2>Gradebook &mdash; CSE 301, Data Structures</h2>
-  <p class="sub">Semester 3 &middot; Section A &middot; 62 students &middot; internal assessment</p>
-  <div class="table-shell">
-    <table>
-      <thead><tr><th>Roll</th><th>Student</th><th>Attendance</th><th>Quiz 1 /20</th><th>Mid-sem /30</th><th>Assignment /20</th><th>Total /70</th></tr></thead>
-      <tbody>
-        <tr><td>22CSE0142</td><td>R. Mitra</td><td>92%</td><td>18</td><td>26</td><td>19</td><td><b>63</b></td></tr>
-        <tr><td>22CSE0143</td><td>A. Ghosh</td><td>88%</td><td>16</td><td>22</td><td>17</td><td><b>55</b></td></tr>
-        <tr><td>22CSE0144</td><td>S. Das</td><td>71%</td><td>12</td><td>18</td><td>14</td><td><b>44</b></td></tr>
-        <tr><td>22CSE0145</td><td>P. Sengupta</td><td>64%</td><td>11</td><td>15</td><td>12</td><td><b>38</b></td></tr>
-        <tr><td>22CSE0146</td><td>N. Bose</td><td>95%</td><td>19</td><td>28</td><td>20</td><td><b>67</b></td></tr>
-      </tbody>
-    </table>
+    <div class="legal">
+      <p>&copy; <span id="yr">2026</span> EduSphere Institute of Technology. All rights reserved.</p>
+      <p>Demonstration site &mdash; figures and records are sample data.</p>
+    </div>
   </div>
-  <p class="muted small" style="margin-top:.8rem">Marks entered here flow to the student portal and the examination cell.</p>
-</div>
-
-<div class="panel">
-  <h2>Today's classes</h2>
-  <p class="sub">Friday, 31 October 2026</p>
-  <ul class="rows" style="border:0">
-    <li><span>CSE 301 &mdash; Data Structures &middot; Room B-204</span><span class="date">09:00 &ndash; 10:00</span></li>
-    <li><span>CSE 402 &mdash; Operating Systems &middot; Room B-301</span><span class="date">11:00 &ndash; 12:00</span></li>
-    <li><span>CSE 505 &mdash; Distributed Systems (elective) &middot; Lab 4</span><span class="date">14:00 &ndash; 16:00</span></li>
-  </ul>
-</div>
-</div>
-  </div>
-</div>
-<script src="assets/main.js"></script>
+</footer>
+<script src="assets/app.js"></script>
 </body>
 </html>
