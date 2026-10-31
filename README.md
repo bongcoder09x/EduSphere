@@ -57,7 +57,9 @@ Console sidebars follow the same module names, so each screen maps to a module.
 - Public pages, admission portal, authentication, student portal
 - Student services: courses, assignments, quizzes, exams, fees, library, hostel, transport, helpdesk
 - Parent portal, faculty portal, academic coordinator, exam cell
-- Finance, library, hostel, transport, campus admin
+- Finance, library, hostel, transport
+- Campus admin (students, staff, academic structure, admissions, communication, certificates, settings)
+- Group super admin (campuses, cross-campus analytics, global roles, billing, system)
 
 Technology choices are deliberately left out of the site copy: the structure describes
 what each surface and module does, not the stack behind it.
