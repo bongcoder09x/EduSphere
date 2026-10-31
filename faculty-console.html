@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faculty Web + Gradebook | EduSphere</title>
+<meta name="description" content="Faculty console with courses, gradebook and attendance.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="console">
+  <aside class="side">
+    <div class="brand">
+      <span class="crest">E</span>
+      <span><b>EduSphere</b><small>Dr. A. Banerjee</small></span>
+    </div>
+    <nav><a href="#">Dashboard</a><a href="faculty-console.html" class="on">My courses</a><a href="#">Gradebook</a><a href="#">Attendance</a><a href="#">Course material</a><a href="#">Students</a></nav>
+    <div class="side-foot"><a href="index.html" style="color:var(--gold)">&larr; Public site</a></div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:.7rem">
+        <h1>Faculty web + gradebook</h1><span class="badge-demo">Demo data</span>
+      </div>
+      <div class="who"><span class="av">AB</span><span>Dr. A. Banerjee</span></div>
+    </div>
+    <div class="body">
+<div class="kpis">
+  <div class="kpi"><span>Courses this term</span><b>3</b><div class="delta">CSE 301, CSE 402, CSE 505</div></div>
+  <div class="kpi"><span>Students taught</span><b>186</b><div class="delta">across three sections</div></div>
+  <div class="kpi"><span>Marks pending</span><b>24</b><div class="delta" style="color:#8a6100">Due 28 Nov</div></div>
+  <div class="kpi"><span>Attendance below 75%</span><b>9</b><div class="delta" style="color:#a11b1b">Needs follow-up</div></div>
+</div>
+
+<div class="panel">
+  <h2>Gradebook &mdash; CSE 301, Data Structures</h2>
+  <p class="sub">Semester 3 &middot; Section A &middot; 62 students &middot; internal assessment</p>
+  <div class="table-shell">
+    <table>
+      <thead><tr><th>Roll</th><th>Student</th><th>Attendance</th><th>Quiz 1 /20</th><th>Mid-sem /30</th><th>Assignment /20</th><th>Total /70</th></tr></thead>
+      <tbody>
+        <tr><td>22CSE0142</td><td>R. Mitra</td><td>92%</td><td>18</td><td>26</td><td>19</td><td><b>63</b></td></tr>
+        <tr><td>22CSE0143</td><td>A. Ghosh</td><td>88%</td><td>16</td><td>22</td><td>17</td><td><b>55</b></td></tr>
+        <tr><td>22CSE0144</td><td>S. Das</td><td>71%</td><td>12</td><td>18</td><td>14</td><td><b>44</b></td></tr>
+        <tr><td>22CSE0145</td><td>P. Sengupta</td><td>64%</td><td>11</td><td>15</td><td>12</td><td><b>38</b></td></tr>
+        <tr><td>22CSE0146</td><td>N. Bose</td><td>95%</td><td>19</td><td>28</td><td>20</td><td><b>67</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="muted small" style="margin-top:.8rem">Marks entered here flow to the student portal and the examination cell.</p>
+</div>
+
+<div class="panel">
+  <h2>Today's classes</h2>
+  <p class="sub">Friday, 31 October 2026</p>
+  <ul class="rows" style="border:0">
+    <li><span>CSE 301 &mdash; Data Structures &middot; Room B-204</span><span class="date">09:00 &ndash; 10:00</span></li>
+    <li><span>CSE 402 &mdash; Operating Systems &middot; Room B-301</span><span class="date">11:00 &ndash; 12:00</span></li>
+    <li><span>CSE 505 &mdash; Distributed Systems (elective) &middot; Lab 4</span><span class="date">14:00 &ndash; 16:00</span></li>
+  </ul>
+</div>
+</div>
+  </div>
+</div>
+<script src="assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student / Parent Portal | EduSphere</title>
+<meta name="description" content="Student and parent portal — attendance, marks, fees and notices.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="console">
+  <aside class="side">
+    <div class="brand">
+      <span class="crest">E</span>
+      <span><b>EduSphere</b><small>R. Mitra · 22CSE0142</small></span>
+    </div>
+    <nav><a href="student-portal.html" class="on">Dashboard</a><a href="#">Attendance</a><a href="#">Marks &amp; results</a><a href="#fees">Fees</a><a href="#">Time table</a><a href="#">Hostel</a></nav>
+    <div class="side-foot"><a href="index.html" style="color:var(--gold)">&larr; Public site</a></div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:.7rem">
+        <h1>Student / parent portal</h1><span class="badge-demo">Demo data</span>
+      </div>
+      <div class="who"><span class="av">RM</span><span>R. Mitra · 22CSE0142</span></div>
+    </div>
+    <div class="body">
+<div class="kpis">
+  <div class="kpi"><span>Attendance</span><b>92%</b><div class="delta">Above the 75% requirement</div></div>
+  <div class="kpi"><span>CGPA</span><b>8.6</b><div class="delta">Semester 5, latest</div></div>
+  <div class="kpi"><span>Fee due</span><b>&#8377;42,500</b><div class="delta" style="color:#8a6100">Due 30 Nov 2026</div></div>
+  <div class="kpi"><span>Backlogs</span><b>0</b><div class="delta">Clear</div></div>
+</div>
+
+<div class="panel">
+  <h2>This semester</h2>
+  <p class="sub">Semester 5 &middot; B.Tech Computer Science &middot; Section A</p>
+  <div class="table-shell">
+    <table>
+      <thead><tr><th>Course</th><th>Faculty</th><th>Attendance</th><th>Internal /70</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>CSE 301 &mdash; Data Structures</td><td>Dr. A. Banerjee</td><td>92%</td><td>63</td><td><span class="pillstat ok">On track</span></td></tr>
+        <tr><td>CSE 402 &mdash; Operating Systems</td><td>Dr. S. Nair</td><td>88%</td><td>55</td><td><span class="pillstat ok">On track</span></td></tr>
+        <tr><td>CSE 505 &mdash; Distributed Systems</td><td>Dr. A. Banerjee</td><td>90%</td><td>58</td><td><span class="pillstat ok">On track</span></td></tr>
+        <tr><td>MGT 210 &mdash; Engineering Economics</td><td>Dr. M. Iyer</td><td>76%</td><td>41</td><td><span class="pillstat warn">Watch</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="grid g2">
+  <div class="panel" id="fees">
+    <h2>Fee payment</h2>
+    <p class="sub">Semester 5 tuition &mdash; &#8377;42,500 due 30 November 2026</p>
+    <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+      <a class="btn btn-maroon" href="#fees">Pay now</a>
+      <a class="btn btn-gold" href="#fees">Download receipt</a>
+    </div>
+    <ul class="rows" style="margin-top:1rem">
+      <li><span>Semester 4 &mdash; paid</span><span class="date">12 Jul 2026</span></li>
+      <li><span>Semester 3 &mdash; paid</span><span class="date">08 Jan 2026</span></li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h2>Notices for you</h2>
+    <p class="sub">From the examination cell and your department</p>
+    <ul class="rows" style="border:0">
+      <li><span>Odd semester time table published<span class="new">NEW</span></span><span class="date">14 Oct</span></li>
+      <li><span>MGT 210 attendance below 80%</span><span class="date">09 Oct</span></li>
+      <li><span>Scholarship application window open</span><span class="date">02 Oct</span></li>
+    </ul>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+<script src="assets/main.js"></script>
+</body>
+</html>

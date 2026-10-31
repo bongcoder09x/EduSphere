@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin / Staff Console | EduSphere</title>
+<meta name="description" content="Administrative console for admissions, fees and grievances.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="console">
+  <aside class="side">
+    <div class="brand">
+      <span class="crest">E</span>
+      <span><b>EduSphere</b><small>Registrar</small></span>
+    </div>
+    <nav><a href="#">Dashboard</a><a href="admin-console.html" class="on">Admissions</a><a href="#">Student records</a><a href="#">Fees &amp; accounts</a><a href="#">Examination</a><a href="#">Staff &amp; HR</a><a href="#">Reports</a></nav>
+    <div class="side-foot"><a href="index.html" style="color:var(--gold)">&larr; Public site</a></div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:.7rem">
+        <h1>Admin / staff console</h1><span class="badge-demo">Demo data</span>
+      </div>
+      <div class="who"><span class="av">RG</span><span>Registrar</span></div>
+    </div>
+    <div class="body">
+<div class="kpis">
+  <div class="kpi"><span>Applications</span><b>1,842</b><div class="delta">+214 this week</div></div>
+  <div class="kpi"><span>Verified documents</span><b>1,506</b><div class="delta">82% of applications</div></div>
+  <div class="kpi"><span>Fee pending</span><b>96</b><div class="delta" style="color:#a11b1b">18 overdue</div></div>
+  <div class="kpi"><span>Open grievances</span><b>7</b><div class="delta" style="color:#8a6100">2 past SLA</div></div>
+</div>
+
+<div class="panel">
+  <h2>Applications awaiting review</h2>
+  <p class="sub">Admission cycle 2027&ndash;28 &middot; sorted by submission date</p>
+  <div class="table-shell">
+    <table>
+      <thead><tr><th>Applicant</th><th>Programme</th><th>Submitted</th><th>Documents</th><th>Status</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>R. Mitra</td><td>B.Tech CSE</td><td>18 Oct 2026</td><td>4 / 4</td><td><span class="pillstat ok">Ready</span></td><td><a class="link-arrow" href="#">Review</a></td></tr>
+        <tr><td>A. Ghosh</td><td>B.Tech ECE</td><td>18 Oct 2026</td><td>3 / 4</td><td><span class="pillstat warn">Incomplete</span></td><td><a class="link-arrow" href="#">Review</a></td></tr>
+        <tr><td>S. Das</td><td>MBA</td><td>17 Oct 2026</td><td>4 / 4</td><td><span class="pillstat ok">Ready</span></td><td><a class="link-arrow" href="#">Review</a></td></tr>
+        <tr><td>P. Sengupta</td><td>B.Tech Mechanical</td><td>16 Oct 2026</td><td>2 / 4</td><td><span class="pillstat bad">Flagged</span></td><td><a class="link-arrow" href="#">Review</a></td></tr>
+        <tr><td>N. Bose</td><td>B.Sc Data Science</td><td>15 Oct 2026</td><td>4 / 4</td><td><span class="pillstat ok">Ready</span></td><td><a class="link-arrow" href="#">Review</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="panel">
+  <h2>Recent staff activity</h2>
+  <p class="sub">Last 24 hours</p>
+  <ul class="rows" style="border:0">
+    <li><span>Admissions office approved 12 applications</span><span class="date">11:42 am</span></li>
+    <li><span>Accounts reconciled 34 fee payments</span><span class="date">10:15 am</span></li>
+    <li><span>Examination cell published odd semester time table</span><span class="date">09:20 am</span></li>
+    <li><span>Hostel warden updated room allotment, Block C</span><span class="date">Yesterday</span></li>
+  </ul>
+</div>
+</div>
+  </div>
+</div>
+<script src="assets/main.js"></script>
+</body>
+</html>

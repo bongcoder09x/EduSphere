@@ -1,91 +1,70 @@
-# EduSphere
+# EduSphere — college website
 
-The website for **EduSphere — College of Engineering & Management**: a static,
-seven-page college site covering programmes, admissions, faculty, campus life and
-contact.
+Website for **EduSphere Institute of Technology**. Plain HTML, CSS and a small
+JavaScript file — no framework, no build step, no dependencies.
 
-Built as plain HTML, CSS and a small amount of JavaScript — no framework, no build
-step, no dependencies. Open `index.html` in a browser and it works; push it and it
-deploys.
-
-**Live site:** https://bongcoder09x.github.io/EduSphere/
-
-## Pages
-
-| File | Page |
-| --- | --- |
-| `index.html` | Home — hero, stats, why-us, programmes, news |
-| `about.html` | History, teaching approach, departments, accreditation |
-| `academics.html` | Programmes, department table, academic calendar |
-| `admissions.html` | Application steps, seats by programme, fees |
-| `faculty.html` | Senior faculty and department strength |
-| `campus-life.html` | Library, hostels, sports, clubs, weekly rhythm |
-| `contact.html` | Enquiry form and admissions office details |
-| `404.html` | Not-found page |
+**Live:** https://bongcoder09x.github.io/EduSphere/
 
 ## Structure
 
-```
-.
-├── index.html, about.html, …   # one file per page
-├── 404.html
-└── assets/
-    ├── style.css               # the entire design system
-    └── main.js                 # mobile menu + demo form handler
-```
+The site follows the four client surfaces of the institute system:
 
-Every page shares the same header and footer markup. If you change the navigation,
-change it in each page — there is deliberately no templating layer to keep the
-project readable.
+| Surface | Files | Purpose |
+| --- | --- | --- |
+| Public site + admission portal (SSR) | `index.html`, `overview.html`, `academic.html`, `admission.html`, `students.html`, `exam.html`, `research.html`, `iqac.html`, `feedback.html`, `career.html`, `contact.html` | Marketing, information and the application form |
+| Admin / staff console | `admin-console.html` | Applications, documents, fees, grievances |
+| Faculty web + gradebook | `faculty-console.html` | Courses, marks entry, attendance, timetable |
+| Student / parent portal | `student-portal.html` | Attendance, marks, fee payment, notices |
 
-## Customising
+`404.html` is the not-found page.
 
-**Colours and type** live in the `:root` block at the top of `assets/style.css`:
+## Navigation
+
+The header reproduces the institute nav: a navy utility bar (Email login, Staff,
+Admin Login, Library, Semester Fee, Search) above a gold navigation bar with
+dropdowns — Home, Overview, Academic, Students, Exam, R&D, Admission, Feedback,
+IQAC, NAAC, NIRF, Self Disclosure, Career.
+
+## Design tokens
+
+All colours live in `:root` at the top of `assets/style.css`:
 
 ```css
-:root{
-  --ink:#0b1b33;      /* headings, header and footer background */
-  --gold:#c8963e;     /* accent */
-  --paper:#fbfbf8;    /* page background */
-  --sand:#f3efe6;     /* alternating section background */
-}
+--navy:#0b1b3a;      /* header, footer, headings */
+--gold:#f6c445;      /* navigation bar, primary buttons */
+--gold-deep:#e0a800; /* accents, link underlines */
+--maroon:#7b1113;    /* Semester Fee button, notice header, NEW tags */
+--mist:#f4f7fb;      /* alternating section background */
 ```
 
-**Content** is plain HTML in each page file — no data files to learn. Search for the
-text you want to change and edit it in place.
+## Editing
 
-**College details** (name, address, phone, email, office hours) appear in the header
-brand block, the footer, and the contact and admissions pages. Search the folder for
-`edusphere.edu.in` to find every occurrence.
+- **Content** is plain HTML — search for the text and change it in place.
+- **College details** appear in the header, footer, `contact.html` and
+  `admission.html`. Search for `edusphere.edu.in` to find every occurrence.
+- **Consoles** use the same stylesheet; sidebar links are in each console file.
 
-## What is placeholder
+## Placeholder content
 
-The site is a complete front-end with demonstration content. Before it is used for a
-real institution:
+Every figure is invented for demonstration — student counts, placement rate, seat
+numbers, ranks, grades and the students named in the consoles. The forms are inert
+and show a notice instead of submitting. Before this is used for a real institute:
 
-- Replace the college name, address, phone, email and founding year
-- Replace all figures — campus size, student and faculty counts, placement rate,
-  seat numbers — with verified numbers
-- Add real photography; the current design uses no images at all
-- Wire the enquiry form to a backend or form service (it currently shows a notice
-  instead of sending)
-- Add a privacy notice if the form collects personal data
+1. Replace name, address, phone, email and founding year
+2. Replace all figures with verified institutional data
+3. Wire the admission, result and feedback forms to a backend
+4. Add a privacy notice wherever personal data is collected
+5. Publish the real NAAC/NIRF/AQAR documents behind the IQAC links
 
 ## Running locally
 
-Open `index.html` directly, or serve the folder:
+Open `index.html`, or serve the folder:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Then visit http://localhost:8000.
-
 ## Deployment
 
-Hosted with GitHub Pages, served from the root of the `main` branch. Push to `main`
-and the site updates within a minute.
-
-## Licence
-
-No licence has been added yet — all rights reserved until one is.
+GitHub Pages, served from the root of `main`. Push and the site rebuilds in about a
+minute.
