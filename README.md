@@ -1,60 +1,82 @@
 # EduSphere — college website
 
-Website for **EduSphere Institute of Technology**. Plain HTML, CSS and a small
-JavaScript file — no framework, no build step, no dependencies.
+Website for **EduSphere Institute of Technology**, built to the reference design:
+navy utility header, gold navigation bar with dropdowns, red/white action buttons,
+five-card statistics strip, notice & news board, online admission block, partner
+websites strip and a striped multi-column footer.
+
+Plain HTML, CSS and one small JavaScript file — no framework, no build step.
 
 **Live:** https://bongcoder09x.github.io/EduSphere/
 
-## Structure
+## Pages
 
-The site follows the four client surfaces of the institute system:
+| File | Page |
+| --- | --- |
+| `index.html` | Home — banner, stats, notice board, academic buttons, online admission, important websites, gallery link, module strip |
+| `overview.html` | History, vision, leadership, campus |
+| `academic.html` | Programmes, departments, academic calendar |
+| `admission.html` | Admission portal form, process, seats and eligibility |
+| `students.html` | Library, hostel, clubs, scholarships |
+| `exam.html` | Examination cell, results, time table, notices |
+| `research.html` | Projects, funding, publications |
+| `iqac.html` | IQAC, NAAC, AQAR, NIRF, mandatory disclosure |
+| `feedback.html` | Feedback form and grievance redressal |
+| `career.html` | Faculty and staff openings |
+| `contact.html` | Contact details, enquiry form, campus tours |
+| `notices.html` | Full notice and news board |
+| `gallery.html` | Photo gallery (placeholder tiles) |
+| `architecture.html` | Four client surfaces + backend module map |
+| `admin-console.html` | Admin / staff console |
+| `faculty-console.html` | Faculty web + gradebook |
+| `student-portal.html` | Student / parent portal |
+| `404.html` | Not found |
 
-| Surface | Files | Purpose |
-| --- | --- | --- |
-| Public site + admission portal (SSR) | `index.html`, `overview.html`, `academic.html`, `admission.html`, `students.html`, `exam.html`, `research.html`, `iqac.html`, `feedback.html`, `career.html`, `contact.html` | Marketing, information and the application form |
-| Admin / staff console | `admin-console.html` | Applications, documents, fees, grievances |
-| Faculty web + gradebook | `faculty-console.html` | Courses, marks entry, attendance, timetable |
-| Student / parent portal | `student-portal.html` | Attendance, marks, fee payment, notices |
+## System structure
 
-`404.html` is the not-found page.
+The site documents and mirrors the institute system:
 
-## Navigation
+- **Clients** — public site + admission portal (SSR), admin/staff console,
+  faculty web + gradebook, student/parent portal (PWA)
+- **Backend** — NestJS modular monolith, horizontally scaled pods, with modules:
+  Auth/IAM, Tenancy, Admissions, Students, Faculty, Academics, Timetable,
+  Attendance (QR/Geo), Exams & Results, Fees & Payments, Library, Hostel,
+  Transport, LMS-lite, Comms, Reports, Files, Audit, plus GPS, Notify and BI
 
-The header reproduces the institute nav: a navy utility bar (Email login, Staff,
-Admin Login, Library, Semester Fee, Search) above a gold navigation bar with
-dropdowns — Home, Overview, Academic, Students, Exam, R&D, Admission, Feedback,
-IQAC, NAAC, NIRF, Self Disclosure, Career.
+Console sidebars follow the same module names, so each screen maps to a module.
 
 ## Design tokens
 
-All colours live in `:root` at the top of `assets/style.css`:
+In `:root` at the top of `assets/style.css`:
 
 ```css
---navy:#0b1b3a;      /* header, footer, headings */
+--navy:#0b1b3a;      /* header, footer, notice board */
+--navy-2:#122a55;    /* action button band */
 --gold:#f6c445;      /* navigation bar, primary buttons */
---gold-deep:#e0a800; /* accents, link underlines */
---maroon:#7b1113;    /* Semester Fee button, notice header, NEW tags */
---mist:#f4f7fb;      /* alternating section background */
+--gold-deep:#e0a800; /* active tab, accents */
+--maroon:#7b1113;    /* Semester Fee button */
 ```
 
 ## Editing
 
-- **Content** is plain HTML — search for the text and change it in place.
-- **College details** appear in the header, footer, `contact.html` and
-  `admission.html`. Search for `edusphere.edu.in` to find every occurrence.
-- **Consoles** use the same stylesheet; sidebar links are in each console file.
+- Content is plain HTML — search for the text and change it in place.
+- College details appear in the header, footer, `contact.html` and `admission.html`;
+  search for `edusphere.edu.in`.
+- The Google Map in the footer is an `iframe` — replace the `q=` query with the
+  real campus address.
 
 ## Placeholder content
 
-Every figure is invented for demonstration — student counts, placement rate, seat
-numbers, ranks, grades and the students named in the consoles. The forms are inert
-and show a notice instead of submitting. Before this is used for a real institute:
+Every figure is invented for demonstration: student counts, placement rate, seat
+numbers, ranks, grades and the names in the consoles. Forms are inert and show a
+notice instead of submitting. Before real use:
 
 1. Replace name, address, phone, email and founding year
 2. Replace all figures with verified institutional data
-3. Wire the admission, result and feedback forms to a backend
+3. Wire the admission, result, feedback and enquiry forms to a backend
 4. Add a privacy notice wherever personal data is collected
-5. Publish the real NAAC/NIRF/AQAR documents behind the IQAC links
+5. Publish the real NAAC / NIRF / AQAR documents behind the IQAC links
+6. Replace the gallery placeholders with real photographs
 
 ## Running locally
 
@@ -66,5 +88,5 @@ python3 -m http.server 8000
 
 ## Deployment
 
-GitHub Pages, served from the root of `main`. Push and the site rebuilds in about a
-minute.
+GitHub Pages, served from the root of `main`. Push and the site rebuilds in about
+a minute.
