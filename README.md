@@ -17,17 +17,20 @@ scale cleanly and inherit the surrounding text colour.
 
 | Token | Value | Use |
 | --- | --- | --- |
-| Cream | `#F8F2E7` | page background |
-| Ivory | `#FFFAF3` | cards, glass surfaces |
-| Burgundy | `#A9002A` | primary actions, active states |
-| Gold | `#C58A00` | accents, eyebrows, secondary actions |
-| Dark brown | `#3B2118` | headings and body copy |
-| Muted brown | `#8B6855` | secondary text |
-| Beige | `#EAD9C3` | borders and dividers |
+| Navy | `#06294B` | navigation, headings, primary actions |
+| Blue | `#0B5FA5` | secondary actions, links, charts |
+| Gold | `#E6A000` | accents, highlights, active nav |
+| Background | `#F5F8FC` | page background |
+| Card | `#FFFFFF` | cards and panels |
+| Text | `#10243A` | body copy |
+| Muted | `#64748B` | secondary text |
+| Border | `#E2E8F0` | borders and dividers |
+| Success / Error | `#15803D` / `#DC2626` | status badges |
 
-Frosted glass cards with a 16px backdrop blur, transparent borders, soft shadows,
-18px radii, serif headings (Fraunces) over sans body text (Inter), a floating glass
-navbar, and hover transitions throughout. Everything collapses to a single column
+Clean white cards with soft shadows, 14px radii and subtle borders; a navy navigation
+bar; Inter throughout; controlled glassmorphism on the overlay surfaces; and a full
+motion system — page entrance, staggered scroll reveal, card tilt, counters, button
+shine and ripple, with `prefers-reduced-motion` respected. Everything collapses to a single column
 below 720px.
 
 ## What actually works
