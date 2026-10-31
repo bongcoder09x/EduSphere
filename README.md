@@ -36,19 +36,22 @@ Plain HTML, CSS and one small JavaScript file — no framework, no build step.
 
 The site documents and mirrors the institute system:
 
-- **Clients** — public site + admission portal (SSR), admin/staff console,
-  faculty web + gradebook, student/parent portal (PWA)
-- **Backend** — NestJS modular monolith, horizontally scaled pods, with modules:
+- **Clients** — public site + admission portal, admin/staff console,
+  faculty web + gradebook, student/parent portal
+- **Backend** — modular monolith, horizontally scaled services, with modules:
   Auth/IAM, Tenancy, Admissions, Students, Faculty, Academics, Timetable,
   Attendance (QR/Geo), Exams & Results, Fees & Payments, Library, Hostel,
   Transport, LMS-lite, Comms, Reports, Files, Audit, plus GPS, Notify and BI
-- **Workers** (separate deployment) — timetable-solver (OR-Tools, Python sidecar),
-  pdf-renderer (Playwright: ID cards, marksheets), notification-dispatcher
-  (SMS/email/push/WhatsApp), bulk-import (CSV/XLSX students, marks),
-  fee-reminders + late-fine cron, payment-reconciliation (gateway settlements),
-  report-builder (heavy exports to S3)
+- **Workers** (separate deployment) — timetable-solver (clash-free timetables),
+  pdf-renderer (ID cards, marksheets, receipts), notification-dispatcher
+  (SMS/email/push/WhatsApp), bulk-import (students and marks from spreadsheets),
+  fee-reminders + late-fine, payment-reconciliation (gateway settlements),
+  report-builder (heavy exports to file storage)
 
 Console sidebars follow the same module names, so each screen maps to a module.
+
+Technology choices are deliberately left out of the site copy: the structure describes
+what each surface and module does, not the stack behind it.
 
 ## Design tokens
 
