@@ -469,10 +469,122 @@
     }
   }
 
+
+  /* ---------------- notices: filter cards + carousel ---------------- */
+  var NOTICE_DATA = [
+    { id: 47533, t: "Notification for UG 4th semester Examination 2026 under CCFUP-NEP pattern", cat: "Exam", pub: "Oct 30, 2026", val: "Nov 26, 2026", st: "Active", isNew: true },
+    { id: 47532, t: "Notification regarding publication of results for PG 2nd Semester Examinations 2026 (Sub: PHY, FSC) [Ref. No.: VU/CE/GD/0627/2026]", cat: "Exam", pub: "Oct 30, 2026", val: "Nov 20, 2026", st: "Active", isNew: true },
+    { id: 47531, t: "Admission notification to one year Diploma Course in Epidemiology & Public Health", cat: "Admission", pub: "Oct 29, 2026", val: "Dec 15, 2026", st: "Active", isNew: true },
+    { id: 47530, t: "Odd semester examination time table published", cat: "Exam", pub: "Oct 14, 2026", val: "Nov 20, 2026", st: "Active", isNew: false },
+    { id: 47529, t: "Merit scholarship applications close 30 November", cat: "Scholarship", pub: "Oct 09, 2026", val: "Nov 30, 2026", st: "Active", isNew: false },
+    { id: 47528, t: "Campus placement drive: 34 companies confirmed", cat: "Placement", pub: "Oct 02, 2026", val: "Nov 15, 2026", st: "Active", isNew: false },
+    { id: 47527, t: "Class start for B.Tech 2nd and 3rd year", cat: "Academic", pub: "Oct 03, 2026", val: "Oct 07, 2026", st: "Expired", isNew: false },
+    { id: 47526, t: "75 percent mandatory attendance rule", cat: "Academic", pub: "Sep 21, 2026", val: "N/A", st: "Active", isNew: false },
+    { id: 47525, t: "Hostel outpass approvals move online", cat: "Hostel", pub: "Sep 17, 2026", val: "Sep 30, 2026", st: "Expired", isNew: false },
+    { id: 47524, t: "Bus route 4 timing revised", cat: "Transport", pub: "Sep 11, 2026", val: "N/A", st: "Active", isNew: false }
+  ];
+
+  var CAROUSEL = [
+    { d: "29", m: "Sep", t: "Fixture of the 9th Inter College Kabaddi (Men & Women) Tournament 2026", s: "Dated 28.09.2026" },
+    { d: "01", m: "Oct", t: "Inviting entries from participants in the First State-Level Essay Competition organised by Lok Bhavan, West Bengal", s: "Entries close 20 October" },
+    { d: "06", m: "Oct", t: "Fixture of the 19th Inter College Kho-Kho (Men & Women) Tournament 2026", s: "Dated 05.10.2026" },
+    { d: "05", m: "Nov", t: "InnoQuest 2026 — a competition on Innovative Ideas, Proposals, Models and Demonstrations", s: "Registration open" }
+  ];
+
+  function mailIcon() {
+    return '<svg class="ico" width="15" height="15" aria-hidden="true"><use href="#i-mail"/></svg>';
+  }
+
+  function initNoticeCards() {
+    var host = $("#noticeCards");
+    if (!host) return;
+    var search = $("#nSearch"), by = $("#nBy"), cat = $("#nCat"), st = $("#nStatus"), reset = $("#nReset");
+    var panel = $("#filterPanel"), toggle = $("#toggleFilters");
+
+    if (toggle && panel) toggle.addEventListener("click", function () {
+      var hidden = panel.classList.toggle("hidden");
+      toggle.classList.toggle("closed", hidden);
+      toggle.querySelector("span").textContent = hidden ? "Show Filters" : "Collapse Filters";
+    });
+
+    function render() {
+      var q = (search && search.value || "").toLowerCase().trim();
+      var c = cat ? cat.value : "all", s = st ? st.value : "all";
+      var rows = NOTICE_DATA.filter(function (n) {
+        var hay = (by && by.value === "id") ? String(n.id) : n.t.toLowerCase();
+        return (!q || hay.toLowerCase().indexOf(q) > -1) &&
+          (c === "all" || n.cat === c) && (s === "all" || n.st === s);
+      });
+      host.innerHTML = rows.length ? rows.map(function (n) {
+        return '<article class="ncard ' + (n.st === "Expired" ? "expired" : "") + '">' +
+          '<div class="top"><span class="mail">' + mailIcon() + "</span>" +
+          '<span class="nid">' + n.id + "</span>" +
+          (n.isNew ? '<span class="nnew">&#9733; New</span>' : "") + "</div>" +
+          "<h3>" + n.t + "</h3>" +
+          '<div class="nmeta"><span>Published On: <b>' + n.pub + "</b></span>" +
+          "<span>Valid Upto: <b>" + n.val + "</b></span>" +
+          (n.st === "Active" ? '<span class="pill-active"><i></i> Active</span>'
+            : '<span class="pill-expired">Expired</span>') + "</div></article>";
+      }).join("") : '<div class="note">No notices match those filters. Try resetting them.</div>';
+
+      Array.prototype.forEach.call(host.querySelectorAll(".ncard"), function (el, i) {
+        setTimeout(function () { el.classList.add("in"); }, i * 70);
+      });
+      var cnt = $("#noticeCount"); if (cnt) cnt.textContent = rows.length;
+    }
+
+    [search, by, cat, st].forEach(function (el) { if (el) el.addEventListener("input", render); });
+    [by, cat, st].forEach(function (el) { if (el) el.addEventListener("change", render); });
+    if (reset) reset.addEventListener("click", function () {
+      if (search) search.value = ""; if (by) by.value = "title"; if (cat) cat.value = "all"; if (st) st.value = "all";
+      render(); toast("Filters reset");
+    });
+    render();
+  }
+
+  function initCarousel() {
+    var track = $("#cTrack");
+    if (!track) return;
+    track.innerHTML = CAROUSEL.map(function (c) {
+      return '<div class="citem"><div class="cdate"><b>' + c.d + "</b><span>" + c.m + "</span></div>" +
+        "<div><p>" + c.t + '</p><div class="tagline">' + c.s + "</div></div></div>";
+    }).join("");
+
+    var idx = 0, timer = null, playing = true;
+    var items = track.children.length;
+    var viewport = $(".carousel .viewport");
+    function step(dir) {
+      var visible = Math.max(1, Math.floor((viewport.clientHeight + 12) / 84));
+      var max = Math.max(0, items - visible);
+      idx = Math.min(max, Math.max(0, idx + dir));
+      var first = track.children[0];
+      var h = first ? first.getBoundingClientRect().height + 12 : 84;
+      track.style.transform = "translateY(-" + (idx * h) + "px)";
+    }
+    function play() {
+      stop();
+      timer = setInterval(function () {
+        var visible = Math.max(1, Math.floor((viewport.clientHeight + 12) / 84));
+        if (idx >= items - visible) idx = -1;
+        step(1);
+      }, 3200);
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    var up = $("#cUp"), down = $("#cDown"), pause = $("#cPause");
+    if (up) up.addEventListener("click", function () { stop(); step(-1); });
+    if (down) down.addEventListener("click", function () { stop(); step(1); });
+    if (pause) pause.addEventListener("click", function () {
+      playing = !playing;
+      if (playing) { play(); pause.innerHTML = '<svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-pause"/></svg>'; }
+      else { stop(); pause.innerHTML = '<svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-play"/></svg>'; }
+    });
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) play();
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initNav(); initTables(); initNotices(); initProgrammes(); initWizard();
     initResults(); initVerify(); initGradebook(); initAttendance(); initFees();
-    initParent(); initStudentDashboard();
+    initParent(); initStudentDashboard(); initNoticeCards(); initCarousel();
     var y = $("#yr"); if (y) y.textContent = new Date().getFullYear();
   });
 })();
