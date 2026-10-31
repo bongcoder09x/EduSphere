@@ -23,6 +23,12 @@
         el.style.transitionDelay = (i % 6) * 45 + "ms";
         io.observe(el);
       });
+      /* safety net: anything already on screen reveals itself after a moment */
+      setTimeout(function () {
+        document.querySelectorAll("[data-reveal]:not(.in)").forEach(function (el) {
+          if (el.getBoundingClientRect().top < window.innerHeight + 80) el.classList.add("in");
+        });
+      }, 900);
     }
 
     /* ---- 3D tilt ---- */

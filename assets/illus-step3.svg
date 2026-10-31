@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" width="200" height="140" role="img" aria-label="Preference list illustration">
+  <defs><linearGradient id="b3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0B5FA5"/><stop offset="100%" stop-color="#06294B"/></linearGradient></defs>
+  <circle cx="100" cy="70" r="60" fill="#0B5FA5" opacity=".08"/>
+  <rect x="44" y="26" width="80" height="92" rx="8" fill="#fff" stroke="#CBD9E8" stroke-width="2"/>
+  <rect x="56" y="40" width="56" height="7" rx="3.5" fill="url(#b3)" opacity=".7"/>
+  <g fill="#64748B" opacity=".5">
+    <rect x="56" y="56" width="44" height="5" rx="2.5"/><rect x="56" y="68" width="52" height="5" rx="2.5"/>
+    <rect x="56" y="80" width="38" height="5" rx="2.5"/><rect x="56" y="92" width="46" height="5" rx="2.5"/>
+  </g>
+  <g>
+    <rect x="118" y="52" width="42" height="30" rx="6" fill="#fff" stroke="#E6A000" stroke-width="2"/>
+    <path d="M126 66l5 5 10-11" stroke="#15803D" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+  <g>
+    <rect x="118" y="90" width="42" height="30" rx="6" fill="#fff" stroke="#CBD9E8" stroke-width="2"/>
+    <rect x="126" y="102" width="26" height="5" rx="2.5" fill="#E2E8F0"/>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" width="200" height="140" role="img" aria-label="Create profile illustration">
+  <defs><linearGradient id="b1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0B5FA5"/><stop offset="100%" stop-color="#06294B"/></linearGradient></defs>
+  <circle cx="100" cy="70" r="60" fill="#0B5FA5" opacity=".08"/>
+  <rect x="46" y="34" width="108" height="76" rx="10" fill="#fff" stroke="#CBD9E8" stroke-width="2"/>
+  <circle cx="78" cy="62" r="12" fill="#F6CFA8"/>
+  <path d="M62 84c0-9 7-16 16-16s16 7 16 16z" fill="url(#b1)"/>
+  <rect x="104" y="52" width="38" height="6" rx="3" fill="#0B5FA5" opacity=".6"/>
+  <rect x="104" y="64" width="30" height="5" rx="2.5" fill="#64748B" opacity=".45"/>
+  <rect x="104" y="74" width="34" height="5" rx="2.5" fill="#64748B" opacity=".35"/>
+  <rect x="62" y="94" width="80" height="6" rx="3" fill="#E2E8F0"/>
+  <path d="M28 26l22 8-10 6 6 12-8 4-6-12-8 6z" fill="#E6A000" opacity=".9"/>
+</svg>

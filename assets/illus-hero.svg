@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" width="420" height="320" role="img" aria-label="Student illustration">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E8F1FB"/><stop offset="100%" stop-color="#D3E4F7"/></linearGradient>
+    <linearGradient id="shirt" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0B5FA5"/><stop offset="100%" stop-color="#06294B"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F2C05A"/><stop offset="100%" stop-color="#E6A000"/></linearGradient>
+  </defs>
+  <circle cx="300" cy="90" r="74" fill="url(#gold)" opacity=".18"/>
+  <circle cx="120" cy="210" r="96" fill="#0B5FA5" opacity=".08"/>
+  <rect x="24" y="252" width="372" height="14" rx="7" fill="#06294B" opacity=".08"/>
+  <g>
+    <path d="M150 300c0-46 26-74 60-74s60 28 60 74z" fill="url(#shirt)"/>
+    <path d="M186 226h48v34h-48z" fill="#F0C39A"/>
+    <circle cx="210" cy="196" r="36" fill="#F6CFA8"/>
+    <path d="M174 190c0-24 16-38 36-38s36 14 36 38c-8-10-22-16-36-16s-28 6-36 16z" fill="#2A1B12"/>
+    <circle cx="198" cy="196" r="3.4" fill="#2A1B12"/><circle cx="222" cy="196" r="3.4" fill="#2A1B12"/>
+    <path d="M200 212c6 5 14 5 20 0" stroke="#2A1B12" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <path d="M150 300c0-30 12-52 30-62l-10 62z" fill="#0B3B6B" opacity=".55"/>
+    <path d="M270 300c0-30-12-52-30-62l10 62z" fill="#0B3B6B" opacity=".55"/>
+  </g>
+  <g transform="translate(268 168)">
+    <rect x="0" y="0" width="86" height="60" rx="8" fill="#fff" stroke="#CBD9E8" stroke-width="2"/>
+    <rect x="10" y="12" width="44" height="6" rx="3" fill="#0B5FA5" opacity=".55"/>
+    <rect x="10" y="24" width="60" height="5" rx="2.5" fill="#64748B" opacity=".45"/>
+    <rect x="10" y="34" width="34" height="5" rx="2.5" fill="#64748B" opacity=".35"/>
+    <circle cx="70" cy="46" r="10" fill="url(#gold)"/>
+    <path d="M66 46l3 3 5-6" stroke="#3A2A05" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(58 60)">
+    <rect x="0" y="0" width="112" height="70" rx="14" fill="#06294B"/>
+    <path d="M26 70l-6 14 22-14z" fill="#06294B"/>
+    <text x="14" y="30" font-family="Inter,Arial" font-size="15" font-weight="700" fill="#F2C05A">17 colleges</text>
+    <text x="14" y="50" font-family="Inter,Arial" font-size="12" fill="#C9D7E6">one application</text>
+  </g>
+</svg>
