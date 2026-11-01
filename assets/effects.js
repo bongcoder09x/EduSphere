@@ -6,29 +6,25 @@
   function init() {
     if (reduce) return;
 
-    /* ---- scroll reveal ---- */
+    /* ---- scroll reveal (above-the-fold is never hidden) ---- */
     var targets = document.querySelectorAll(".card, .panel, .kpi, .glass, .hero-copy, .table-shell, .rows");
+    targets.forEach(function (el) { el.setAttribute("data-reveal", ""); });
+    /* reveal everything already on screen straight away */
+    targets.forEach(function (el) {
+      if (el.getBoundingClientRect().top < window.innerHeight + 40) el.classList.add("in");
+    });
     if ("IntersectionObserver" in window) {
       var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en, i) {
+        entries.forEach(function (en) {
           if (en.isIntersecting) {
-            var el = en.target;
-            setTimeout(function () { el.classList.add("in"); }, Math.min(i * 60, 240));
-            io.unobserve(el);
+            en.target.classList.add("in");
+            io.unobserve(en.target);
           }
         });
-      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-      targets.forEach(function (el, i) {
-        el.setAttribute("data-reveal", "");
-        el.style.transitionDelay = (i % 6) * 45 + "ms";
-        io.observe(el);
-      });
-      /* safety net: anything already on screen reveals itself after a moment */
-      setTimeout(function () {
-        document.querySelectorAll("[data-reveal]:not(.in)").forEach(function (el) {
-          if (el.getBoundingClientRect().top < window.innerHeight + 80) el.classList.add("in");
-        });
-      }, 900);
+      }, { threshold: 0.08, rootMargin: "0px 0px -30px 0px" });
+      targets.forEach(function (el) { if (!el.classList.contains("in")) io.observe(el); });
+    } else {
+      targets.forEach(function (el) { el.classList.add("in"); });
     }
 
     /* ---- 3D tilt ---- */
@@ -88,6 +84,28 @@
       b.appendChild(s);
       setTimeout(function () { s.remove(); }, 650);
     });
+
+    /* ---- scroll progress ---- */
+    var bar = document.querySelector(".scroll-progress");
+    if (bar) {
+      window.addEventListener("scroll", function () {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + "%";
+      }, { passive: true });
+    }
+
+    /* ---- hero illustration parallax ---- */
+    var fig = document.querySelector(".hero-figure");
+    if (fig) {
+      var hero = fig.closest(".hero");
+      hero.addEventListener("mousemove", function (e) {
+        var r = hero.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5;
+        var y = (e.clientY - r.top) / r.height - 0.5;
+        fig.style.transform = "translate3d(" + (x * 14).toFixed(1) + "px," + (y * 10).toFixed(1) + "px,0)";
+      });
+      hero.addEventListener("mouseleave", function () { fig.style.transform = ""; });
+    }
 
     /* ---- back to top ---- */
     var top = document.getElementById("toTop");
