@@ -7,7 +7,10 @@
     if (reduce) return;
 
     /* ---- scroll reveal (above-the-fold is never hidden) ---- */
-    var targets = document.querySelectorAll(".card, .panel, .kpi, .glass, .hero-copy, .table-shell, .rows");
+    var targets = document.querySelectorAll(
+      ".card, .panel, .kpi, .glass, .hero-copy, .table-shell, .rows, .section-head, .sec-title, " +
+      ".rolebar, .ccard, .gcard, .tcard, .stepcard, .quickcta a, .webcard, .filter-panel, .auth-card, " +
+      ".foot-links > div, .foot-sign, .ncards, .carousel, .kpis, .topbar");
     targets.forEach(function (el) { el.setAttribute("data-reveal", ""); });
     /* reveal everything already on screen straight away */
     targets.forEach(function (el) {
@@ -26,6 +29,14 @@
     } else {
       targets.forEach(function (el) { el.classList.add("in"); });
     }
+
+    /* ---- table rows stagger ---- */
+    document.querySelectorAll("tbody").forEach(function (tb) {
+      Array.prototype.forEach.call(tb.rows, function (tr, i) {
+        tr.classList.add("row-in");
+        tr.style.animationDelay = Math.min(i * 45, 400) + "ms";
+      });
+    });
 
     /* ---- 3D tilt ---- */
     var tiltEls = document.querySelectorAll(".card, .kpi, .stat-card");

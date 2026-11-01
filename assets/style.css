@@ -1416,3 +1416,64 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .bname{font-size:.95rem}
   .bsub{display:none}
 }
+
+/* ================= animation everywhere ================= */
+@keyframes riseIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes rowIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+@keyframes popIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+
+/* section headings slide in */
+[data-reveal] h2,[data-reveal] .eyebrow{transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
+[data-reveal]:not(.in) h2,[data-reveal]:not(.in) .eyebrow{opacity:0;transform:translateY(8px)}
+
+/* table rows stagger in */
+tbody tr.row-in{animation:rowIn .45s cubic-bezier(.2,.7,.3,1) both}
+
+/* role chips, quick actions, website cards pop */
+.role,.quickcta a,.webcard,.chip,.foot-links li{transition:transform .22s cubic-bezier(.2,.7,.3,1),background .22s ease,color .22s ease,box-shadow .22s ease}
+.role:hover{transform:translateY(-3px)}
+.quickcta a:hover,.webcard:hover{transform:translateY(-4px)}
+.chip:hover{transform:translateY(-1px)}
+.foot-links li:hover{transform:translateX(3px)}
+.foot-links a{display:inline-block;transition:transform .2s ease,color .2s ease}
+
+/* rows lift + arrow hint */
+.rows li{transition:background .22s ease,transform .22s ease,padding-left .22s ease}
+.rows li:hover{transform:translateX(2px)}
+
+/* nav + logo micro-interactions */
+.navbar{transition:box-shadow .3s ease,background .3s ease,transform .3s ease}
+.brand:hover .logo{transform:rotate(-6deg) scale(1.06)}
+.brand .logo{transition:transform .45s cubic-bezier(.2,.7,.3,1)}
+
+/* form fields animate on focus */
+input,select,textarea{transition:border-color .2s ease,box-shadow .25s ease,background .2s ease,transform .2s ease}
+input:focus,select:focus,textarea:focus{transform:translateY(-1px)}
+
+/* buttons: subtle scale + shadow already; add icon nudge */
+.btn:hover .ico{transform:translateX(2px);transition:transform .22s ease}
+.btn .ico{transition:transform .22s ease}
+
+/* cards: image/logo zoom */
+.ccard .clogo img,.gcard .ph{transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.ccard:hover .clogo img{transform:scale(1.04)}
+
+/* footer pattern drifts slowly */
+.foot::before{animation:drift 46s linear infinite}
+@keyframes drift{to{background-position:240px 180px}}
+
+/* floating actions pulse on idle */
+.float-actions .fa-apply{animation:softPulse 4.5s ease-in-out infinite}
+@keyframes softPulse{0%,100%{box-shadow:0 12px 26px rgba(59,33,24,.24)}50%{box-shadow:0 12px 30px rgba(197,138,0,.45)}}
+
+/* progress bars animate when revealed */
+.progress i{transform-origin:left;animation:barGrow 1s cubic-bezier(.2,.7,.3,1) both}
+@keyframes barGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* respect reduced motion for everything added above */
+@media (prefers-reduced-motion: reduce){
+  tbody tr.row-in{animation:none}
+  .progress i{animation:none}
+  .float-actions .fa-apply{animation:none}
+  .foot::before{animation:none}
+}
