@@ -158,42 +158,6 @@
     });
   }
 
-  /* ---------------- notices ---------------- */
-  function initNotices() {
-    var list = $("#noticeList");
-    if (!list) return;
-    var tabs = $$("#noticeTabs .tab");
-    var q = $("#noticeSearch");
-    var cat = "all";
-
-    function render() {
-      var term = (q && q.value || "").toLowerCase();
-      var items = DB.notices.filter(function (n) {
-        var okCat = cat === "all" || n.cat.toLowerCase() === cat;
-        var okQ = !term || n.t.toLowerCase().indexOf(term) > -1 || n.cat.toLowerCase().indexOf(term) > -1;
-        return okCat && okQ;
-      });
-      list.innerHTML = items.length ? items.map(function (n) {
-        return '<li><div><b style="font-weight:600">' + n.t + "</b>" +
-          '<div class="small muted" style="margin-top:.15rem">' + n.cat + " &middot; posted " + n.d +
-          (n.live ? ' &middot; <span class="badge b-ok">Active</span>' : ' &middot; <span class="badge b-info">Archived</span>') +
-          "</div></div></li>";
-      }).join("") : '<li><span class="muted small">No notices match that search.</span></li>';
-      var c = $("#noticeCount");
-      if (c) c.textContent = items.length;
-    }
-    tabs.forEach(function (t) {
-      t.addEventListener("click", function () {
-        tabs.forEach(function (x) { x.classList.remove("on"); });
-        t.classList.add("on");
-        cat = (t.dataset.cat || "all").toLowerCase();
-        render();
-      });
-    });
-    if (q) q.addEventListener("input", render);
-    render();
-  }
-
   /* ---------------- programme filter ---------------- */
   function initProgrammes() {
     var grid = $("#programGrid");
@@ -633,7 +597,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    initNav(); initTables(); initNotices(); initProgrammes(); initWizard();
+    initNav(); initTables(); initProgrammes(); initWizard();
     initResults(); initVerify(); initGradebook(); initAttendance(); initFees();
     initParent(); initStudentDashboard(); initNoticeCards(); initCarousel();
     var y = $("#yr"); if (y) y.textContent = new Date().getFullYear();
