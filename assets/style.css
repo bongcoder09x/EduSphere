@@ -1386,3 +1386,33 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .float-actions{right:14px;bottom:14px}
   .float-actions button,.float-actions a{width:42px;height:42px}
 }
+
+/* perfect round logo everywhere */
+.brand .logo,.crest-logo,.brandpill img{border:0!important;background:transparent!important;
+  border-radius:50%!important;object-fit:cover;aspect-ratio:1/1;
+  box-shadow:0 6px 16px rgba(59,33,24,.16)}
+.brand .logo{width:46px;height:46px;flex:0 0 46px}
+.side .crest-logo,.side-logo{width:36px;height:36px;flex:0 0 36px}
+.auth-card .crest-logo{width:84px;height:84px}
+.brandpill img{width:32px;height:32px;border-radius:50%;box-shadow:none}
+
+/* responsive header: collapse links into the burger on narrow screens */
+.navbar .burger{display:none}
+@media (max-width:1080px){
+  .navbar .navlinks{display:none}
+  .navbar .burger{display:inline-flex;margin-left:.2rem}
+  .navactions{margin-left:auto}
+  .navbar{gap:10px}
+}
+@media (max-width:620px){
+  .navactions .btn{padding:.5rem .85rem;font-size:.78rem}
+  .bname{font-size:1rem}
+  .navbar .brand .logo{width:40px;height:40px;flex:0 0 40px}
+}
+
+@media (max-width:520px){
+  .navactions{display:none}
+  .navbar .burger{display:inline-flex;margin-left:auto}
+  .bname{font-size:.95rem}
+  .bsub{display:none}
+}
