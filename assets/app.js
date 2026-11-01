@@ -543,41 +543,92 @@
   }
 
   function initCarousel() {
-    var track = $("#cTrack");
+    var track = document.querySelector("#cTrack");
     if (!track) return;
-    track.innerHTML = CAROUSEL.map(function (c) {
-      return '<div class="citem"><div class="cdate"><b>' + c.d + "</b><span>" + c.m + "</span></div>" +
+    var wrap = track.closest(".carousel");
+    var viewport = wrap.querySelector(".viewport");
+
+    track.innerHTML = CAROUSEL.map(function (c, i) {
+      return '<div class="citem" style="animation-delay:' + (i * 90) + 'ms">' +
+        '<div class="cdate"><b>' + c.d + "</b><span>" + c.m + "</span></div>" +
         "<div><p>" + c.t + '</p><div class="tagline">' + c.s + "</div></div></div>";
     }).join("");
 
-    var idx = 0, timer = null, playing = true;
-    var items = track.children.length;
-    var viewport = $(".carousel .viewport");
-    function step(dir) {
-      var visible = Math.max(1, Math.floor((viewport.clientHeight + 12) / 84));
-      var max = Math.max(0, items - visible);
-      idx = Math.min(max, Math.max(0, idx + dir));
-      var first = track.children[0];
-      var h = first ? first.getBoundingClientRect().height + 12 : 84;
-      track.style.transform = "translateY(-" + (idx * h) + "px)";
+    var items = track.children;
+    var idx = 0, timer = null, playing = true, hovered = false;
+
+    /* progress bar under the list */
+    var prog = document.createElement("div");
+    prog.className = "cprogress";
+    prog.innerHTML = "<i></i>";
+    viewport.parentNode.insertBefore(prog, viewport.nextSibling);
+    var bar = prog.querySelector("i");
+
+    function itemHeight() {
+      return items[0] ? items[0].offsetHeight + 12 : 84;
+    }
+    function visibleCount() {
+      return Math.max(1, Math.round((viewport.clientHeight + 12) / itemHeight()));
+    }
+    function maxIdx() {
+      return Math.max(0, items.length - visibleCount());
+    }
+    function render() {
+      track.style.transform = "translateY(-" + (idx * itemHeight()) + "px)";
+      Array.prototype.forEach.call(items, function (el, i) {
+        el.classList.toggle("is-active", i >= idx && i < idx + visibleCount());
+      });
+    }
+    function next() {
+      idx = idx >= maxIdx() ? 0 : idx + 1;
+      render();
+    }
+    function prev() {
+      idx = idx <= 0 ? maxIdx() : idx - 1;
+      render();
     }
     function play() {
       stop();
+      if (!playing) return;
       timer = setInterval(function () {
-        var visible = Math.max(1, Math.floor((viewport.clientHeight + 12) / 84));
-        if (idx >= items - visible) idx = -1;
-        step(1);
+        if (!hovered) next();
       }, 3200);
+      prog.classList.add("running");
     }
-    function stop() { if (timer) { clearInterval(timer); timer = null; } }
-    var up = $("#cUp"), down = $("#cDown"), pause = $("#cPause");
-    if (up) up.addEventListener("click", function () { stop(); step(-1); });
-    if (down) down.addEventListener("click", function () { stop(); step(1); });
+    function stop() {
+      if (timer) { clearInterval(timer); timer = null; }
+      prog.classList.remove("running");
+    }
+
+    var up = document.querySelector("#cUp"), down = document.querySelector("#cDown"),
+        pause = document.querySelector("#cPause");
+
+    if (up) up.addEventListener("click", function () { stop(); prev(); play(); });
+    if (down) down.addEventListener("click", function () { stop(); next(); play(); });
     if (pause) pause.addEventListener("click", function () {
       playing = !playing;
-      if (playing) { play(); pause.innerHTML = '<svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-pause"/></svg>'; }
-      else { stop(); pause.innerHTML = '<svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-play"/></svg>'; }
+      if (playing) {
+        play();
+        pause.innerHTML = '<svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-pause"/></svg>';
+        pause.setAttribute("aria-label", "Pause");
+      } else {
+        stop();
+        pause.innerHTML = '<svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-play"/></svg>';
+        pause.setAttribute("aria-label", "Play");
+      }
     });
+
+    /* pause while the pointer is over the list, resume on leave */
+    wrap.addEventListener("mouseenter", function () { hovered = true; prog.classList.add("paused"); });
+    wrap.addEventListener("mouseleave", function () { hovered = false; prog.classList.remove("paused"); });
+
+    /* pause when the tab is hidden so it never races ahead */
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) stop(); else play();
+    });
+
+    window.addEventListener("resize", render);
+    render();
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) play();
   }
 
