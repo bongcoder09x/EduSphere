@@ -73,7 +73,7 @@
         var out = num % 1 === 0 ? Math.round(num) : num.toFixed(1);
         if (num >= 1000) out = Number(out).toLocaleString("en-IN");
         el.textContent = pre + out + post;
-      }, 1400);
+      }, 900);
     });
 
     /* ---- ripple on buttons ---- */
@@ -123,6 +123,19 @@
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
     }
+
+    /* ---- counters: guarantee the final value on load ---- */
+    window.addEventListener("load", function () {
+      document.querySelectorAll(".kpi b, .stat-grid b, .stat b").forEach(function (el) {
+        var m = el.textContent.trim().match(/^([^\d]*)([\d,]+(?:\.\d+)?)(.*)$/);
+        if (!m) return;
+        var n = parseFloat(m[2].replace(/,/g, ""));
+        if (!isFinite(n)) return;
+        var out = n % 1 === 0 ? Math.round(n) : n.toFixed(1);
+        if (n >= 1000) out = Number(out).toLocaleString("en-IN");
+        el.textContent = m[1] + out + m[3];
+      });
+    });
 
     /* ---- sticky nav shadow ---- */
     var nav = document.querySelector(".navbar");
