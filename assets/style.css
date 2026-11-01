@@ -1265,3 +1265,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   box-shadow:0 6px 16px rgba(59,33,24,.14),inset 0 0 0 1px rgba(255,255,255,.6);background:rgba(255,250,243,.9)}
 .brand .logo{width:58px;height:58px;flex:0 0 58px}
 .auth-card .crest-logo{width:82px;height:82px}
+
+/* ================= college directory ================= */
+.cgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.ccard{background:rgba(255,250,243,.62);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;transition:transform .28s cubic-bezier(.2,.7,.3,1),box-shadow .28s ease,border-color .28s}
+.ccard:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--gold-soft)}
+.ccard h3{font-family:var(--serif);font-size:1.15rem;margin-top:.9rem;line-height:1.3}
+.clogo{height:96px;display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.6);border:1px solid var(--line);border-radius:12px;padding:10px}
+.clogo img{max-height:74px;max-width:100%;width:auto;object-fit:contain}
+.clogo.big{height:150px}
+.clogo.big img{max-height:120px}
+.cactions{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+.mini{width:40px;height:40px;object-fit:contain;border-radius:8px;background:#fff;border:1px solid var(--line);padding:3px}
+@media (max-width:900px){.cgrid{grid-template-columns:1fr}}
