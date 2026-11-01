@@ -68,6 +68,12 @@
         if (p < 1) requestAnimationFrame(step);
       }
       requestAnimationFrame(step);
+      /* guarantee the final value lands even if the animation is interrupted */
+      setTimeout(function () {
+        var out = num % 1 === 0 ? Math.round(num) : num.toFixed(1);
+        if (num >= 1000) out = Number(out).toLocaleString("en-IN");
+        el.textContent = pre + out + post;
+      }, 1400);
     });
 
     /* ---- ripple on buttons ---- */
